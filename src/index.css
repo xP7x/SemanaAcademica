@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #F4E9DD;
+  --color-paper-2: #EADFCF;
+  --color-ink: #2A0E0E;
+  --color-bordo: #6E1414;
+  --color-bordo-deep: #3D0B0B;
+  --color-volt: #D8FF3E;
+  --color-wire: #C9B79C;
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "Fraunces", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-tight;
+  }
+}

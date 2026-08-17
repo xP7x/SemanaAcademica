@@ -1,0 +1,6 @@
+{
+  "name": "Jornada Acadêmica de Fisioterapia UFRGS & UFCSPA",
+  "description": "Site oficial da Jornada Acadêmica de Fisioterapia da UFRGS e UFCSPA (2026).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
