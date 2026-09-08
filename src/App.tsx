@@ -8,6 +8,8 @@ import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
 import { Convidados } from "./pages/Convidados";
 import { Programacao } from "./pages/Programacao";
+import { WorkshopsPage } from "./pages/WorkshopsPage";
+import { Patrocinadores } from "./pages/Patrocinadores";
 import { Inscricao } from "./pages/Inscricao";
 
 export default function App() {
@@ -37,8 +39,10 @@ export default function App() {
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/convidados" element={<Convidados />} />
             <Route path="/programacao" element={<Programacao />} />
+            <Route path="/workshops" element={<WorkshopsPage />} />
+            <Route path="/convidados" element={<Convidados />} />
+            <Route path="/patrocinadores" element={<Patrocinadores />} />
             <Route path="/inscricao" element={<Inscricao />} />
           </Routes>
         </div>

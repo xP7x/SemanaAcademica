@@ -99,7 +99,7 @@ export function Hero() {
               to="/inscricao"
               className="px-8 py-4 font-display text-xl uppercase tracking-widest bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-colors shadow-lg"
             >
-              Fazer Inscrição
+              Inscrições em breve
             </Link>
           </motion.div>
         </div>

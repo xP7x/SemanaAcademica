@@ -11,23 +11,26 @@ export function Registration() {
           className="flex flex-col items-center"
         >
           <span className="font-display text-5xl text-paper mb-6">08</span>
-          <h2 className="font-display text-6xl md:text-8xl text-paper mb-8 leading-none">
-            GARANTA SUA VAGA
+          <h2 className="font-display text-5xl sm:text-6xl md:text-8xl text-paper mb-6 leading-none">
+            INSCRIÇÕES EM BREVE
           </h2>
+          <p className="font-body text-paper/80 text-lg max-w-xl mb-10">
+            A abertura do primeiro lote de inscrições para a Jornada Acadêmica será divulgada nos canais oficiais das universidades e diretórios acadêmicos.
+          </p>
           
-          <div className="flex flex-col gap-2 mb-12">
-            <span className="font-display text-2xl text-paper">Ingresso Solidário:</span>
-            <span className="font-mono text-lg text-paper uppercase tracking-wider">1kg de alimento não perecível</span>
+          <div className="flex flex-col gap-2 mb-10 p-6 bg-paper/10 border border-paper/20 rounded-xl backdrop-blur-xs max-w-md w-full">
+            <span className="font-display text-xl sm:text-2xl text-paper">Ingresso Solidário:</span>
+            <span className="font-mono text-base text-paper uppercase tracking-wider font-semibold">1kg de alimento não perecível</span>
+            <span className="font-body text-xs text-paper/70 mt-1">
+              Entregue no credenciamento nos dias do evento
+            </span>
           </div>
           
-          <a 
-            href="#"
-            className="px-10 py-5 font-display text-2xl uppercase tracking-widest bg-paper text-bordo hover:bg-paper-2 transition-colors rounded-full shadow-[0_0_20px_rgba(244,233,221,0.2)] hover:shadow-[0_0_30px_rgba(244,233,221,0.4)]"
-          >
-            Inscreva-se via Sympla
-          </a>
-          <span className="font-mono text-xs text-paper/50 mt-6 block tracking-widest uppercase">
-            * Vagas limitadas por workshop (20-40 pessoas por atividade)
+          <div className="inline-flex items-center justify-center px-10 py-5 font-display text-2xl uppercase tracking-widest bg-paper text-bordo rounded-full shadow-[0_0_20px_rgba(244,233,221,0.2)] opacity-95">
+            Abertura em Breve via Sympla
+          </div>
+          <span className="font-mono text-xs text-paper/60 mt-6 block tracking-widest uppercase">
+            * Vagas limitadas por workshop (20 pessoas por atividade na UFRGS - ESEFID)
           </span>
         </motion.div>
       </div>

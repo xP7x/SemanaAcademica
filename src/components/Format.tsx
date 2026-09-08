@@ -1,26 +1,30 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function Format() {
   const formats = [
     {
-      day: "DIA 1",
-      title: "Palestras e Workshops",
-      desc: "Imersão em áreas como Dermato, Geronto e Pélvica, com apresentações e workshops simultâneos no final do dia."
+      day: "DIA 1 • 13 OUT",
+      dayId: "dia1",
+      title: "Palestras e Workshops Práticos",
+      desc: "Abertura oficial com ciclo de palestras temáticas ao longo de todo o dia e workshops práticos simultâneos no turno da noite."
     },
     {
-      day: "DIA 2",
-      title: "Palestras e Workshops",
-      desc: "Blocos científicos contínuos focados em conteúdo aprofundado, também finalizando com workshops práticos simultâneos."
+      day: "DIA 2 • 14 OUT",
+      dayId: "dia2",
+      title: "Palestras Especializadas e Prática",
+      desc: "Segundo dia com palestras ministradas por especialistas e nova rodada de workshops práticos simultâneos às 19h."
     },
     {
-      day: "DIA 3",
-      title: "Mesas-Redondas",
-      desc: "Discussões dinâmicas entre profissionais sobre o mercado, carreira e diferentes aspectos da prática fisioterapêutica."
+      day: "DIA 3 • 15 OUT",
+      dayId: "dia3",
+      title: "Mesas-Redondas e Encerramento",
+      desc: "Dia dedicado a debates aprofundados em mesas-redondas com convidados e momento cultural no encerramento da jornada."
     }
   ];
 
   return (
-    <section className="py-24 px-6 lg:px-24 bg-paper-2 relative">
+    <section className="py-24 px-6 lg:px-24 bg-paper-2 relative scroll-mt-24" id="formato">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -50,9 +54,12 @@ export function Format() {
                 <p className="font-body text-ink/70 leading-relaxed">{f.desc}</p>
               </div>
               <div className="mt-8 pt-4 border-t border-wire/50">
-                <span className="font-mono text-xs uppercase text-ink/40 group-hover:text-bordo transition-colors">
+                <Link
+                  to={`/programacao?dia=${f.dayId}`}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase text-ink/60 group-hover:text-bordo group-hover:translate-x-1 transition-all duration-200"
+                >
                   Saiba mais &rarr;
-                </span>
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -61,3 +68,4 @@ export function Format() {
     </section>
   );
 }
+

@@ -1,67 +1,151 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
+import { Clock, User, Sparkles, MapPin, Tag } from "lucide-react";
+
+type ActivityCategory =
+  | "palestra"
+  | "mesa"
+  | "workshop"
+  | "intervalo"
+  | "credenciamento"
+  | "solenidade"
+  | "cultural";
 
 type Activity = {
   time: string;
   activity: string;
-  format: string;
+  category: ActivityCategory;
+  speaker?: string;
+  topic?: string;
+  notes?: string;
 };
 
 const dia1: Activity[] = [
-  { time: "08:00–08:30", activity: "Credenciamento", format: "Recepção e controle de presença" },
-  { time: "09:00–09:30", activity: "Abertura", format: "Abertura institucional" },
-  { time: "09:30–10:10", activity: "Palestra Dermato", format: "Thaiane Cavalheiro" },
-  { time: "10:10–10:20", activity: "Perguntas + Break", format: "Intervalo" },
-  { time: "10:20–11:00", activity: "Palestra Geronto", format: "Murilo de Carvalho" },
-  { time: "11:00–11:10", activity: "Perguntas + Break", format: "Intervalo" },
-  { time: "11:10–11:50", activity: "Palestra", format: "Tema a definir" },
-  { time: "12:00–13:00", activity: "Break Almoço", format: "Intervalo de 1h" },
-  { time: "13:00–13:30", activity: "Credenciamento", format: "Retorno do almoço" },
-  { time: "13:30–14:00", activity: "Ballet Virtuose", format: "Abertura cultural da jornada" },
-  { time: "14:00–14:50", activity: "Palestra Pélvica", format: "Ivana Camargo" },
-  { time: "15:00–15:50", activity: "Palestra", format: "Tema a definir" },
-  { time: "16:00–16:50", activity: "Palestra FILA", format: "Apresentação patrocinador" },
-  { time: "17:00–17:10", activity: "Coffee break", format: "Intervalo" },
-  { time: "17:30–18:00", activity: "Encaminhamento", format: "Orientações para os workshops" },
-  { time: "18:00–20:00", activity: "Workshops Simultâneos", format: "Pélvica, Dermato, Traumato" },
+  { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
+  { time: "09:00", activity: "Abertura Oficial", category: "solenidade", notes: "Junto do Crefito e coordenadores" },
+  { time: "09:30", activity: "Palestra: Dermatofuncional", category: "palestra", speaker: "Thaiane Cavalheiro", topic: "Dermatofuncional", notes: "Perguntas abertas ao final" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "10:30", activity: "Palestra: Gerontologia", category: "palestra", speaker: "Murilo de Carvalho", topic: "Gerontologia" },
+  { time: "11:20", activity: "Palestra: Fisioterapia Esportiva", category: "palestra", speaker: "Mauren", topic: "Fisioterapia Esportiva" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Break para o almoço" },
+  { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
+  { time: "13:30", activity: "Abertura do Turno da Tarde", category: "solenidade", notes: "A definir" },
+  { time: "14:00", activity: "Palestra: Fisioterapia Pélvica", category: "palestra", speaker: "Ivana Camargo", topic: "Fisioterapia Pélvica" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "15:00", activity: "Palestra: Traumato-ortopédica", category: "palestra", speaker: "Leonardo Neves", topic: "Traumato-ortopédica" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "16:00", activity: "Palestra Especial da FILA", category: "palestra", speaker: "Palestrante da FILA", topic: "Apresentação Patrocinador FILA" },
+  { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
+  { time: "17:10", activity: "Coffee Break", category: "intervalo", notes: "A definir" },
+  { time: "19:00", activity: "Workshops Simultâneos (3 turmas)", category: "workshop", notes: "Local: UFRGS - ESEFID • Pélvica (Nathália Casagrande), Dermato (Manoela Neves) e Traumato/Esportiva (20 vagas cada)" },
 ];
 
 const dia2: Activity[] = [
-  { time: "08:00", activity: "Credenciamento", format: "Recepção e controle de presença" },
-  { time: "08:30–09:00", activity: "Abertura", format: "Início do segundo dia" },
-  { time: "09:00–10:30", activity: "Palestras (2)", format: "Bloco científico" },
-  { time: "10:30–10:40", activity: "Intervalo", format: "Pausa curta" },
-  { time: "10:40–12:00", activity: "Palestra (2)", format: "Bloco científico" },
-  { time: "12:00–13:30", activity: "Almoço", format: "Intervalo" },
-  { time: "13:30–14:00", activity: "Retomada", format: "Orientações" },
-  { time: "14:00–15:30", activity: "Palestras (2)", format: "Bloco científico" },
-  { time: "15:30–15:50", activity: "Intervalo", format: "Coffee break" },
-  { time: "15:50–17:20", activity: "Palestras (2)", format: "Bloco científico" },
-  { time: "17:30–18:00", activity: "Encerramento", format: "Encaminhamento para workshops" },
-  { time: "19:00–21:00", activity: "Workshops (2 simultâneos)", format: "Atividades práticas" },
+  { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
+  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "A definir" },
+  { time: "09:30", activity: "Palestra: Fisioterapia Cardiorrespiratória", category: "palestra", speaker: "Carol Schimit", topic: "Cardiorrespiro (Fibrose Cística)" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "10:30", activity: "Palestra: Neurofuncional Adulto", category: "palestra", speaker: "Camila Pinto", topic: "Neuro Adulto - Doença de Parkinson" },
+  { time: "11:20", activity: "Palestra: Neurofuncional Pediátrica", category: "palestra", speaker: "Mylena Francini", topic: "Neuro Pediátrica" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Perguntas + break" },
+  { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
+  { time: "13:30", activity: "Abertura do Turno da Tarde", category: "solenidade", notes: "A definir" },
+  { time: "14:00", activity: "Palestra: Terapia Intensiva e Adulto Crítico", category: "palestra", speaker: "Gabriela Jaroceski", topic: "Terapia Intensiva e Adulto Crítico" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "15:00", activity: "Palestra: Cuidados Paliativos", category: "palestra", speaker: "Mariana Vieira", topic: "Cuidados Paliativos" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
+  { time: "16:00", activity: "Palestra: Fisioterapia Cardiovascular", category: "palestra", speaker: "Denis Selau", topic: "Residente Cardiovascular HCPA" },
+  { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
+  { time: "17:10", activity: "Coffee Break", category: "intervalo", notes: "A definir" },
+  { time: "19:00", activity: "Workshops Simultâneos (3 turmas)", category: "workshop", notes: "Local: UFRGS - ESEFID • Dry Needling (Golden), VOLL e Workshop Prático (20 vagas cada)" },
 ];
 
 const dia3: Activity[] = [
-  { time: "08:00", activity: "Abertura", format: "Início do terceiro dia" },
-  { time: "08:30–10:00", activity: "Mesa-redonda", format: "Discussão entre profissionais" },
-  { time: "10:00–10:30", activity: "Intervalo", format: "Apresentação de ligas ou projetos" },
-  { time: "10:30–12:00", activity: "Mesa-redonda", format: "Discussão entre profissionais" },
-  { time: "12:00–13:00", activity: "Almoço", format: "Intervalo" },
-  { time: "13:30–15:00", activity: "Mesa-redonda", format: "Discussão entre profissionais" },
-  { time: "15:00–15:30", activity: "Intervalo", format: "Apresentação de ligas ou projetos" },
-  { time: "15:30–17:00", activity: "Mesa-redonda", format: "Discussão entre profissionais" },
-  { time: "17:30–18:00", activity: "Encerramento", format: "Momento cultural a definir" },
+  { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
+  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "A definir" },
+  { time: "09:30", activity: "Mesa-Redonda 1", category: "mesa", topic: "Tema a definir", speaker: "Participantes da UFCSPA/UFRGS" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Pausa para café e networking" },
+  { time: "10:30", activity: "Mesa-Redonda 2", category: "mesa", topic: "Tema a definir", speaker: "Participantes da UFCSPA/UFRGS" },
+  { time: "11:20", activity: "Mesa-Redonda: Atenção Primária à Saúde", category: "mesa", topic: "APS (Atenção Primária à Saúde)", speaker: "Participantes a definir" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Break para o almoço" },
+  { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
+  { time: "13:30", activity: "Abertura Cultural", category: "cultural", notes: "Apresentação especial de Ballet" },
+  { time: "14:00", activity: "Mesa-Redonda: Aspectos da Dor", category: "mesa", topic: "Aspectos da Dor", speaker: "Francisco Araújo, Rafael Vercelino e Adriane Vieira" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Pausa rápida" },
+  { time: "15:00", activity: "Mesa-Redonda: Transição de Carreira", category: "mesa", topic: "Me formei, e agora?", speaker: "Participantes a definir" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Pausa rápida" },
+  { time: "16:00", activity: "Mesa-Redonda: Fisioterapia Esportiva", category: "mesa", topic: "GreNal (Atuação no Futebol Profissional)", speaker: "Participantes a definir" },
+  { time: "16:50", activity: "Encerramento Oficial da Jornada", category: "solenidade", notes: "A definir" },
+  { time: "17:10", activity: "Coffee Break de Confraternização", category: "intervalo", notes: "A definir" },
 ];
 
 const dias = [
-  { id: "dia1", label: "DIA 1 - 13 OUT", local: "Auditório ICBS UFRGS (*se > 175 inscritos = UFCSPA)", data: dia1 },
-  { id: "dia2", label: "DIA 2 - 14 OUT", local: "UFCSPA", data: dia2 },
-  { id: "dia3", label: "DIA 3 - 15 OUT", local: "UFCSPA", data: dia3 },
+  {
+    id: "dia1",
+    label: "DIA 13/10 • TERÇA",
+    subtitle: "Palestras Temáticas e Workshops Práticos",
+    local: "Palestras: UFCSPA | Workshops: UFRGS - ESEFID (19h)",
+    data: dia1,
+  },
+  {
+    id: "dia2",
+    label: "DIA 14/10 • QUARTA",
+    subtitle: "Palestras Especializadas e Workshops Práticos",
+    local: "Palestras: UFCSPA | Workshops: UFRGS - ESEFID (19h)",
+    data: dia2,
+  },
+  {
+    id: "dia3",
+    label: "DIA 15/10 • QUINTA",
+    subtitle: "Mesas-Redondas, Momento Cultural e Encerramento",
+    local: "UFCSPA",
+    data: dia3,
+  },
 ];
 
+function getCategoryBadge(category: ActivityCategory) {
+  switch (category) {
+    case "palestra":
+      return { label: "Palestra", bg: "bg-bordo/10 text-bordo border-bordo/30" };
+    case "mesa":
+      return { label: "Mesa-Redonda", bg: "bg-amber-900/10 text-amber-900 border-amber-900/30" };
+    case "workshop":
+      return { label: "Workshop", bg: "bg-bordo text-paper border-bordo" };
+    case "cultural":
+      return { label: "Apresentação Cultural", bg: "bg-purple-900/10 text-purple-900 border-purple-900/30" };
+    case "solenidade":
+      return { label: "Solenidade", bg: "bg-wire/40 text-ink/80 border-wire" };
+    case "credenciamento":
+      return { label: "Presença", bg: "bg-wire/30 text-ink/70 border-wire" };
+    case "intervalo":
+    default:
+      return { label: "Intervalo", bg: "bg-paper-2 text-ink/60 border-wire/60" };
+  }
+}
+
 export function Schedule() {
-  const [activeTab, setActiveTab] = useState(dias[0].id);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const diaParam = searchParams.get("dia");
+
+  const [activeTab, setActiveTab] = useState(() => {
+    if (diaParam && dias.some((d) => d.id === diaParam)) {
+      return diaParam;
+    }
+    return dias[0].id;
+  });
+
+  useEffect(() => {
+    if (diaParam && dias.some((d) => d.id === diaParam) && diaParam !== activeTab) {
+      setActiveTab(diaParam);
+    }
+  }, [diaParam]);
+
+  const handleTabChange = (diaId: string) => {
+    setActiveTab(diaId);
+    setSearchParams({ dia: diaId }, { replace: true });
+  };
 
   const activeData = dias.find((d) => d.id === activeTab);
 
@@ -69,23 +153,29 @@ export function Schedule() {
     <section className="py-24 px-6 lg:px-24 bg-paper-2 relative" id="programacao">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
         <div className="md:w-1/3">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-start gap-4 sticky top-32"
+            className="flex items-start gap-4 sticky top-28"
           >
             <span className="font-display text-5xl text-bordo leading-none">05</span>
-            <div>
+            <div className="w-full">
               <h2 className="font-display text-3xl text-ink leading-tight mt-1">PROGRAMAÇÃO</h2>
+              <p className="font-body text-sm text-ink/70 mt-2">
+                13, 14 e 15 de outubro de 2026 • UFRGS e UFCSPA
+              </p>
+
               <div className="mt-8 flex flex-col gap-2 relative">
                 {dias.map((d) => (
                   <button
                     key={d.id}
-                    onClick={() => setActiveTab(d.id)}
+                    onClick={() => handleTabChange(d.id)}
                     className={cn(
-                      "text-left py-3 px-4 font-display text-xl transition-colors relative z-10",
-                      activeTab === d.id ? "text-paper" : "text-ink/60 hover:text-ink"
+                      "text-left py-3 px-4 rounded-md transition-all relative z-10 cursor-pointer border",
+                      activeTab === d.id
+                        ? "text-paper border-bordo shadow-md"
+                        : "text-ink/70 hover:text-ink bg-paper/60 border-wire/70 hover:border-bordo/40"
                     )}
                   >
                     {activeTab === d.id && (
@@ -95,9 +185,26 @@ export function Schedule() {
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
-                    {d.label}
+                    <span className="font-display text-lg block">{d.label}</span>
+                    <span className={cn(
+                      "font-body text-xs block mt-0.5",
+                      activeTab === d.id ? "text-paper/80" : "text-ink/50"
+                    )}>
+                      {d.subtitle}
+                    </span>
                   </button>
                 ))}
+              </div>
+
+              {/* Informações adicionais de apoio */}
+              <div className="mt-8 p-4 bg-paper border border-wire rounded-md hidden md:block">
+                <div className="flex items-center gap-2 text-bordo mb-2">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="font-mono text-xs font-semibold uppercase tracking-wider">Atenção</span>
+                </div>
+                <p className="font-body text-xs text-ink/75 leading-relaxed">
+                  Os workshops práticos acontecem nos dias 13 e 14 às 19h no <strong>ESEFID - UFRGS</strong>, com limite de 20 participantes por turma.
+                </p>
               </div>
             </div>
           </motion.div>
@@ -113,30 +220,93 @@ export function Schedule() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <div className="mb-8 p-4 bg-wire/10 rounded-md border border-wire/30 flex items-center justify-between">
-                <span className="font-body text-ink font-medium">Local do dia:</span>
-                {activeData.local ? (
-                  <span className="font-mono text-sm">{activeData.local}</span>
-                ) : (
-                  <span className="font-mono text-xs px-2 py-1 bg-wire text-ink rounded-sm">Em breve</span>
-                )}
+              {/* Local banner */}
+              <div className="mb-8 p-4 bg-paper rounded-md border border-wire flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+                <div className="flex items-center gap-2 text-ink/80">
+                  <MapPin className="w-4 h-4 text-bordo shrink-0" />
+                  <span className="font-body text-sm font-medium">Local do dia:</span>
+                </div>
+                <span className="font-mono text-xs sm:text-sm text-ink font-semibold">
+                  {activeData.local}
+                </span>
               </div>
 
-              <div className="relative border-l-2 border-bordo/20 pl-6 pb-4">
-                {activeData.data.map((item, idx) => (
-                  <div key={idx} className="mb-8 relative group">
-                    {/* Timeline dot */}
-                    <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-paper border-2 border-bordo/50 group-hover:border-bordo group-hover:bg-bordo transition-colors" />
-                    
-                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6">
-                      <span className="font-mono text-sm text-bordo w-24 shrink-0">{item.time}</span>
-                      <div>
-                        <h4 className="font-display text-xl text-ink">{item.activity}</h4>
-                        <p className="font-body text-ink/70 mt-1">{item.format}</p>
+              {/* Timeline list */}
+              <div className="relative border-l-2 border-bordo/25 pl-6 pb-4 ml-3 sm:ml-4">
+                {activeData.data.map((item, idx) => {
+                  const badge = getCategoryBadge(item.category);
+                  const isHighlight = item.category === "palestra" || item.category === "mesa" || item.category === "workshop";
+
+                  return (
+                    <div key={idx} className="mb-8 relative group">
+                      {/* Timeline dot */}
+                      <div
+                        className={cn(
+                          "absolute -left-[31px] top-2 w-3.5 h-3.5 rounded-full border-2 transition-all duration-300",
+                          isHighlight
+                            ? "bg-bordo border-paper shadow-xs group-hover:scale-125"
+                            : "bg-paper border-bordo/50 group-hover:border-bordo"
+                        )}
+                      />
+
+                      <div className={cn(
+                        "p-4 sm:p-5 rounded-lg border transition-all duration-200",
+                        isHighlight
+                          ? "bg-paper border-wire/90 shadow-xs hover:border-bordo/60 hover:shadow-md"
+                          : "bg-paper/50 border-wire/50 hover:bg-paper"
+                      )}>
+                        {/* Header: Time + Badge */}
+                        <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
+                          <div className="flex items-center gap-2">
+                            <Clock className="w-3.5 h-3.5 text-bordo" />
+                            <span className="font-mono text-sm font-semibold text-bordo">
+                              {item.time}
+                            </span>
+                          </div>
+                          <span className={cn(
+                            "font-mono text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border",
+                            badge.bg
+                          )}>
+                            {badge.label}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <h4 className="font-display text-xl sm:text-2xl text-ink leading-snug">
+                          {item.activity}
+                        </h4>
+
+                        {/* Speaker & Topic */}
+                        {(item.speaker || item.topic) && (
+                          <div className="mt-3 pt-3 border-t border-wire/40 flex flex-col gap-1.5">
+                            {item.topic && (
+                              <div className="flex items-center gap-2 text-xs font-mono text-ink/70">
+                                <Tag className="w-3.5 h-3.5 text-bordo shrink-0" />
+                                <span>{item.topic}</span>
+                              </div>
+                            )}
+                            {item.speaker && (
+                              <div className="flex items-start gap-2 text-sm text-ink/90">
+                                <User className="w-4 h-4 text-bordo mt-0.5 shrink-0" />
+                                <span className="font-body font-medium">
+                                  {item.category === "mesa" ? "Participantes: " : "Palestrante: "}
+                                  <strong className="text-ink font-semibold">{item.speaker}</strong>
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Observations / Notes */}
+                        {item.notes && (
+                          <div className="mt-2 text-xs font-body text-ink/65 italic">
+                            {item.notes}
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
           )}
@@ -145,3 +315,4 @@ export function Schedule() {
     </section>
   );
 }
+
