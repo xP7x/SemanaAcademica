@@ -17,24 +17,86 @@ const areas = [
   "Cuidados paliativos"
 ];
 
-const mockSpeakers = [
-  { id: 1, name: "Thaiane Cavalheiro", role: "Fisioterapeuta Dermatofuncional • Pós-operatório Cirurgia Plástica", summary: "Focada em técnicas avançadas de recuperação cirúrgica e bem-estar estético.", areas: ["Dermatofuncional"] },
-  { id: 2, name: "Murilo de Carvalho", role: "Fisioterapeuta Gerontológico", summary: "Dedica-se à melhoria da qualidade de vida, mobilidade e independência funcional na terceira idade.", areas: ["Gerontologia"] },
-  { id: 3, name: "Mauren", role: "Fisioterapeuta Esportiva", summary: "Atuação especializada na prevenção, reabilitação e desempenho de atletas de alto rendimento.", areas: ["Fisioterapia esportiva"] },
-  { id: 4, name: "Ivana Camargo", role: "Fisioterapia Pélvica-Hospitalar • Saúde Trans", summary: "Referência na atenção às disfunções do assoalho pélvico e pioneira no cuidado à população trans.", areas: ["Fisioterapia pélvica"] },
-  { id: 5, name: "Leonardo Neves", role: "Fisioterapeuta Traumato-ortopédico • Especialista em Reabilitação", summary: "Atua no manejo avançado de fraturas e traumas músculo-esqueléticos de alta complexidade.", areas: ["Traumato-ortopédica"] },
-  { id: 6, name: "Carol Schimit", role: "Fisioterapeuta Especialista em Cardiorrespiratória • Fibrose Cística", summary: "Experiência de excelência no manejo respiratório crônico e suporte ventilatório na Fibrose Cística.", areas: ["Fisioterapia respiratória"] },
+export interface Speaker {
+  id: number;
+  name: string;
+  role: string;
+  summary: string;
+  areas: string[];
+  photo?: string;
+  photoPosition?: string;
+}
+
+const mockSpeakers: Speaker[] = [
+  { id: 1, name: "Thaiane Cavalheiro", role: "Fisioterapeuta Dermatofuncional • Pós-operatório Cirurgia Plástica", summary: "Focada em técnicas avançadas de recuperação cirúrgica e bem-estar estético.", areas: ["Dermatofuncional"], photo: "/images/convidados/foto thaiane.jpeg", photoPosition: "center 15%" },
+  { id: 2, name: "Murilo de Carvalho", role: "Fisioterapeuta Gerontológico", summary: "Dedica-se à melhoria da qualidade de vida, mobilidade e independência funcional na terceira idade.", areas: ["Gerontologia"], photo: "/images/convidados/foto murilo.jpeg", photoPosition: "center 15%" },
+  { id: 3, name: "Mauren Fraga", role: "Fisioterapeuta Esportiva", summary: "Atuação especializada na prevenção, reabilitação e desempenho de atletas de alto rendimento.", areas: ["Fisioterapia esportiva"], photo: "/images/convidados/foto mauren.jpeg", photoPosition: "center 20%" },
+  { id: 4, name: "Ivana Camargo", role: "Fisioterapia Pélvica-Hospitalar • Saúde Trans", summary: "Referência na atenção às disfunções do assoalho pélvico e pioneira no cuidado à população trans.", areas: ["Fisioterapia pélvica"], photo: "/images/convidados/Foto ivana.jpg", photoPosition: "center 20%" },
+  { id: 5, name: "Leonardo Neves", role: "Fisioterapeuta Traumato-ortopédico • Especialista em Reabilitação", summary: "Atua no manejo avançado de fraturas e traumas músculo-esqueléticos de alta complexidade.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Foto Leonardo.jpg", photoPosition: "center 20%" },
+  { id: 6, name: "Caroline Jacoby", role: "Professora & Fisioterapeuta Especialista em Cardiorrespiratória • UFCSPA", summary: "Docente e pesquisadora com vasta experiência no manejo respiratório crônico e suporte ventilatório.", areas: ["Fisioterapia respiratória"], photo: "/images/convidados/Foto Caroline Jacoby.jpeg", photoPosition: "center 20%" },
   { id: 7, name: "Camila Pinto", role: "Fisioterapeuta Neurofuncional Adulto • PhD PPGCMH", summary: "Pesquisadora e clínica especialista no manejo motor e reabilitação na Doença de Parkinson.", areas: ["Neurofuncional"] },
   { id: 8, name: "Mylena Francini", role: "Fisioterapeuta Neurofuncional Pediátrica • PPGCMH", summary: "Especialista em neurodesenvolvimento infantil e intervenção precoce em neuropediatria.", areas: ["Neurofuncional", "Fisioterapia pediátrica"] },
   { id: 9, name: "Gabriela Jaroceski", role: "Fisioterapeuta Especialista em Terapia Intensiva", summary: "Foco no manejo ventilatório, desmame e mobilização precoce do paciente crítico na UTI.", areas: ["Terapia intensiva", "Fisioterapia respiratória"] },
-  { id: 10, name: "Mariana Vieira", role: "Médica Especialista em Cuidados Paliativos • Formação em Perdas e Luto", summary: "Abordagem interdisciplinar humanizada focada na qualidade de vida e alívio do sofrimento.", areas: ["Cuidados paliativos"], photo: "/images/convidados/dra-mariana-vieira.jpg" },
-  { id: 11, name: "Denis Selau", role: "Fisioterapeuta UFRGS • Residente em Fisioterapia Cardiovascular HCPA", summary: "Atuação no cuidado e reabilitação cardiopulmonar de alta densidade tecnológica no HCPA.", areas: ["Fisioterapia cardiovascular"] },
+  { id: 10, name: "Mariana Vieira", role: "Médica Especialista em Cuidados Paliativos • Formação em Perdas e Luto", summary: "Abordagem interdisciplinar humanizada focada na qualidade de vida e alívio do sofrimento.", areas: ["Cuidados paliativos"], photo: "/images/convidados/dra-mariana-vieira.jpg", photoPosition: "center 100%" },
+  { id: 11, name: "Denis Selau", role: "Fisioterapeuta UFRGS • Residente em Fisioterapia Cardiovascular HCPA", summary: "Atuação no cuidado e reabilitação cardiopulmonar de alta densidade tecnológica no HCPA.", areas: ["Fisioterapia cardiovascular"], photo: "/images/convidados/Foto Denis Selau.jpg", photoPosition: "center 20%" },
   { id: 12, name: "Francisco Araújo", role: "Fisioterapeuta • Pesquisador em Dor Crônica", summary: "Convidado da mesa-redonda de 'Aspectos da Dor', explorando neurociência e dor persistente.", areas: ["Traumato-ortopédica", "Neurofuncional"] },
   { id: 13, name: "Rafael Vercelino", role: "Professor & Pesquisador em Mecanismos da Dor", summary: "Especialista em aspectos neurobiológicos e abordagens terapêuticas interdisciplinares na dor.", areas: ["Traumato-ortopédica", "Neurofuncional"] },
   { id: 14, name: "Adriane Vieira", role: "Professora & Fisioterapeuta • UFRGS", summary: "Pesquisa e prática clínica focada no cuidado multidimensional e alívio da dor.", areas: ["Gerontologia", "Traumato-ortopédica"] },
-  { id: 15, name: "Nathália Casagrande", role: "Fisioterapeuta Pélvica • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Fisioterapia Pélvica com foco em avaliação e técnicas clínicas.", areas: ["Fisioterapia pélvica"] },
-  { id: 16, name: "Manoela Neves", role: "Fisioterapeuta Dermatofuncional • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Dermatofuncional no laboratório ESEFID da UFRGS.", areas: ["Dermatofuncional"] },
+  { id: 15, name: "Nathália Casagrande", role: "Fisioterapeuta Pélvica • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Fisioterapia Pélvica com foco em avaliação e técnicas clínicas.", areas: ["Fisioterapia pélvica"], photo: "/images/convidados/Foto Nathália.jpg", photoPosition: "center 15%" },
+  { id: 16, name: "Manoela Neves", role: "Fisioterapeuta Dermatofuncional • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Dermatofuncional no laboratório ESEFID da UFRGS.", areas: ["Dermatofuncional"], photo: "/images/convidados/Foto Manoela.jpg", photoPosition: "center 10%" },
+  { id: 17, name: "Felipe Xavier", role: "Fisioterapeuta do Grêmio FBPA • Fisioterapia Esportiva", summary: "Convidado da mesa-redonda GreNal, abordando prevenção de lesões e reabilitação no futebol profissional de elite.", areas: ["Fisioterapia esportiva", "Traumato-ortopédica"], photo: "/images/convidados/Felipe Xavier.jpeg", photoPosition: "center 20%" },
+  { id: 18, name: "Téo Fronzi Rodrigues", role: "Fisioterapeuta do Sport Club Internacional • Fisioterapia Esportiva", summary: "Convidado da mesa-redonda GreNal, compartilhando a rotina e as abordagens funcionais no futebol de alta performance.", areas: ["Fisioterapia esportiva", "Traumato-ortopédica"], photo: "/images/convidados/Téo Fronzi Rodrigues.jpg", photoPosition: "center 20%" },
+  { id: 19, name: "Bruna Eibel", role: "Professora & Fisioterapeuta • UFCSPA / Instituto de Cardiologia", summary: "Referência em reabilitação cardiovascular, pesquisa translacional e fisiologia do exercício clínico.", areas: ["Fisioterapia cardiovascular"], photo: "/images/convidados/Bruna Eibel .jpg", photoPosition: "center 20%" },
+  { id: 20, name: "Douglas Stahnke", role: "Fisioterapeuta Especialista em Traumato-ortopédica & Terapia Manual", summary: "Convidado com atuação em avaliação funcional, controle de sobrecarga e reabilitação ortopédica.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Douglas Stahnke.jpg", photoPosition: "center 15%" },
+  { id: 21, name: "Wagner", role: "Fisioterapeuta Especialista • Reabilitação Funcional", summary: "Convidado da mesa-redonda trazendo práticas clínicas integradas e evidências atuais no movimento humano.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Foto Wagner.jpeg", photoPosition: "center 20%" },
+  { id: 22, name: "Natasha Perusso", role: "Fisioterapeuta em Saúde Coletiva • Atenção Primária à Saúde", summary: "Convidada da mesa de APS, destacando o papel estratégico do fisioterapeuta no SUS e saúde comunitária.", areas: ["Gerontologia"], photo: "/images/convidados/Natasha Perusso.jpeg", photoPosition: "center 20%" },
+  { id: 23, name: "Julia Paulon Puerari", role: "Fisioterapeuta • Atenção Primária & Saúde da Família", summary: "Participante da mesa-redonda de APS, debatendo o cuidado em equipe multiprofissional e território.", areas: ["Gerontologia"], photo: "/images/convidados/Julia Paulon Puerari.jpeg", photoPosition: "center 20%" },
+  { id: 24, name: "Ana Carolina de Souza Kummer", role: "Fisioterapeuta • Residência & Prática Hospitalar", summary: "Convidada debatedora compartilhando experiências formativas e intervenções clínicas humanizadas.", areas: ["Neurofuncional", "Fisioterapia respiratória"], photo: "/images/convidados/Ana Carolina de Souza Kummer .jpg", photoPosition: "center 20%" },
+  { id: 25, name: "Vithória Messa", role: "Fisioterapeuta • Mesa-redonda: 'Me formei, e agora?'", summary: "Debatedora na mesa de transição de carreira, discutindo inserção no mercado e caminhos profissionais.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Vithória Messa.jpeg", photoPosition: "center 20%" },
+  { id: 26, name: "Raphael Caballero", role: "Fisioterapeuta • Pesquisador & Especialista", summary: "Participante convidado das mesas-redondas da Jornada com ênfase em prática baseada em evidências.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Raphael Caballero.jpg", photoPosition: "center 20%" },
+  { id: 27, name: "Francisca Pereira", role: "Fisioterapeuta • Prática Clínica & Interdisciplinaridade", summary: "Convidada especial das mesas-redondas da Jornada Acadêmica UFRGS & UFCSPA.", areas: ["Gerontologia", "Cuidados paliativos"], photo: "/images/convidados/Francisca Pereira.jpeg", photoPosition: "center 20%" },
 ];
+
+function SpeakerImage({ name, photo, photoPosition }: { name: string; photo?: string; photoPosition?: string }) {
+  const [hasError, setHasError] = useState(false);
+
+  const initials = useMemo(() => {
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }, [name]);
+
+  const showPhoto = Boolean(photo) && !hasError;
+  const photoSrc = photo ? `${photo}?v=${Date.now()}` : undefined;
+
+  return (
+    <div className="w-full h-64 sm:h-72 bg-paper-2 flex items-center justify-center shrink-0 relative overflow-hidden select-none border-b border-wire/30">
+      {showPhoto ? (
+        <img
+          src={photoSrc}
+          alt={name}
+          loading="lazy"
+          decoding="async"
+          onError={() => setHasError(true)}
+          style={{ objectPosition: photoPosition || "center 20%" }}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-paper-2 via-paper-2 to-wire/25 text-ink/40 p-6 text-center">
+          <div className="w-16 h-16 rounded-full border border-wire/60 flex items-center justify-center bg-paper/90 mb-3 shadow-xs transition-transform duration-300 group-hover:scale-105">
+            <span className="font-display text-2xl font-bold text-bordo tracking-wider">
+              {initials}
+            </span>
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-ink/60">
+            Foto em breve
+          </span>
+        </div>
+      )}
+      <div className="absolute inset-0 ring-1 ring-inset ring-ink/5 pointer-events-none" />
+    </div>
+  );
+}
 
 export function ThematicAreas() {
   const [activeArea, setActiveArea] = useState<string | null>(null);
@@ -167,7 +229,7 @@ export function ThematicAreas() {
                   key={speaker.id}
                   transition={{ type: "spring", stiffness: 350, damping: 28 }}
                   className={cn(
-                    "border transition-all duration-300 overflow-hidden rounded-lg flex flex-col h-full relative",
+                    "group border transition-all duration-300 overflow-hidden rounded-lg flex flex-col h-full relative",
                     isSelectedTheme
                       ? "border-bordo bg-paper-2 shadow-lg ring-1 ring-bordo/30 order-first"
                       : isDefaultView
@@ -182,17 +244,11 @@ export function ThematicAreas() {
                     </div>
                   )}
 
-                  <div className="w-full h-74 bg-wire/20 flex shrink-0 relative overflow-hidden">
-                    {speaker.photo ? (
-                      <img
-                        src={speaker.photo}
-                        alt={speaker.name}
-                        className="w-full h-full object-cover object-[center_100%] hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : (
-                      <span className="font-mono text-xs text-ink/40 tracking-wider">FOTO</span>
-                    )}
-                  </div>
+                  <SpeakerImage
+                    name={speaker.name}
+                    photo={speaker.photo}
+                    photoPosition={speaker.photoPosition}
+                  />
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="font-display text-2xl text-ink mb-1">{speaker.name}</h3>
                     <p className="font-body text-ink/70 text-sm mb-4">{speaker.role}</p>

@@ -34,23 +34,12 @@ export function Footer() {
           <span className="font-mono text-[11px] uppercase tracking-wider text-ink/50">
             Desenvolvido por
           </span>
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-paper rounded-md border border-wire/80 shadow-2xs hover:border-bordo transition-colors">
-            {/* Logo Cadore Tech SVG */}
-            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-bordo">
-              <rect width="32" height="32" rx="6" fill="currentColor" fillOpacity="0.1" />
-              <path d="M10 11L5 16L10 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M22 11L27 16L22 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M18 9L14 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-xs tracking-wide text-ink leading-tight">
-                CADORE<span className="text-bordo">.TECH</span>
-              </span>
-              <span className="font-mono text-[9px] text-ink/50 leading-none">
-                DESENVOLVIMENTO WEB
-              </span>
-            </div>
-          </div>
+          {/* Logo Cadore Tech */}
+          <img
+            src="/images/cadoretech-logo.png"
+            alt="CadoreTech"
+            className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+          />
         </div>
       </div>
     </footer>

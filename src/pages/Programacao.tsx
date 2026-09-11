@@ -1,4 +1,5 @@
 import { Schedule } from "../components/Schedule";
+import { EventLocations } from "../components/EventLocations";
 import { Link } from "react-router-dom";
 import { Sparkles, ArrowRight } from "lucide-react";
 
@@ -6,6 +7,7 @@ export function Programacao() {
   return (
     <div className="pt-16">
       <Schedule />
+      <EventLocations />
       
       {/* Banner de direcionamento para Workshops */}
       <section className="bg-bordo-deep py-12 px-6 lg:px-24 text-paper">

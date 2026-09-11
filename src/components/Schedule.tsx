@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
-import { Clock, User, Sparkles, MapPin, Tag } from "lucide-react";
+import { Clock, User, Sparkles, MapPin, Tag, ArrowDown } from "lucide-react";
 
 type ActivityCategory =
   | "palestra"
@@ -28,7 +28,7 @@ const dia1: Activity[] = [
   { time: "09:30", activity: "Palestra: Dermatofuncional", category: "palestra", speaker: "Thaiane Cavalheiro", topic: "Dermatofuncional", notes: "Perguntas abertas ao final" },
   { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
   { time: "10:30", activity: "Palestra: Gerontologia", category: "palestra", speaker: "Murilo de Carvalho", topic: "Gerontologia" },
-  { time: "11:20", activity: "Palestra: Fisioterapia Esportiva", category: "palestra", speaker: "Mauren", topic: "Fisioterapia Esportiva" },
+  { time: "11:20", activity: "Palestra: Fisioterapia Esportiva", category: "palestra", speaker: "Mauren Fraga", topic: "Fisioterapia Esportiva" },
   { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Break para o almoço" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
   { time: "13:30", activity: "Abertura do Turno da Tarde", category: "solenidade", notes: "A definir" },
@@ -45,7 +45,7 @@ const dia1: Activity[] = [
 const dia2: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
   { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "A definir" },
-  { time: "09:30", activity: "Palestra: Fisioterapia Cardiorrespiratória", category: "palestra", speaker: "Carol Schimit", topic: "Cardiorrespiro (Fibrose Cística)" },
+  { time: "09:30", activity: "Palestra: Fisioterapia Cardiorrespiratória", category: "palestra", speaker: "Caroline Jacoby", topic: "Cardiorrespiro (Fibrose Cística)" },
   { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
   { time: "10:30", activity: "Palestra: Neurofuncional Adulto", category: "palestra", speaker: "Camila Pinto", topic: "Neuro Adulto - Doença de Parkinson" },
   { time: "11:20", activity: "Palestra: Neurofuncional Pediátrica", category: "palestra", speaker: "Mylena Francini", topic: "Neuro Pediátrica" },
@@ -220,15 +220,29 @@ export function Schedule() {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              {/* Local banner */}
+              {/* Local banner com atalho para os mapas */}
               <div className="mb-8 p-4 bg-paper rounded-md border border-wire flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
                 <div className="flex items-center gap-2 text-ink/80">
                   <MapPin className="w-4 h-4 text-bordo shrink-0" />
                   <span className="font-body text-sm font-medium">Local do dia:</span>
                 </div>
-                <span className="font-mono text-xs sm:text-sm text-ink font-semibold">
-                  {activeData.local}
-                </span>
+                <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-between sm:justify-end">
+                  <span className="font-mono text-xs sm:text-sm text-ink font-semibold">
+                    {activeData.local}
+                  </span>
+                  <a
+                    href="#locais"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById("locais")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    title="Ver mapa e rota até o local"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-bordo/10 hover:bg-bordo text-bordo hover:text-paper font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 border border-bordo/30 hover:border-bordo group/btn cursor-pointer shrink-0"
+                  >
+                    <span>Ver no mapa</span>
+                    <ArrowDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-y-0.5" />
+                  </a>
+                </div>
               </div>
 
               {/* Timeline list */}
