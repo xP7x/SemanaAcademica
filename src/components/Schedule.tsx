@@ -19,66 +19,66 @@ type Activity = {
   category: ActivityCategory;
   speaker?: string;
   topic?: string;
+  theme?: string;
   notes?: string;
 };
 
 const dia1: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
   { time: "09:00", activity: "Abertura Oficial", category: "solenidade", notes: "Junto do Crefito e coordenadores" },
-  { time: "09:30", activity: "Palestra: Dermatofuncional", category: "palestra", speaker: "Thaiane Cavalheiro", topic: "Dermatofuncional", notes: "Perguntas abertas ao final" },
-  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "10:30", activity: "Palestra: Gerontologia", category: "palestra", speaker: "Murilo de Carvalho", topic: "Gerontologia" },
-  { time: "11:20", activity: "Palestra: Fisioterapia Esportiva", category: "palestra", speaker: "Mauren Fraga", topic: "Fisioterapia Esportiva" },
-  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Break para o almoço" },
+  { time: "09:30", activity: "Fisioterapia Dermatofuncional na Cirurgia Plástica: da graduação à prática profissional", category: "palestra", speaker: "Thaiane Cavalheiro da Silva", topic: "Dermatofuncional", notes: "Perguntas abertas ao final" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo" },
+  { time: "10:30", activity: "Palestra: Gerontologia", category: "palestra", speaker: "Murilo de Carvalho", topic: "Gerontologia", notes: "Perguntas abertas ao final" },
+  { time: "11:20", activity: "Da lesão ao desempenho: como construir um retorno ao esporte de verdade", category: "palestra", speaker: "Mauren Fraga", topic: "Fisioterapia Esportiva", notes: "Perguntas abertas ao final" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
-  { time: "13:30", activity: "Abertura do Turno da Tarde", category: "solenidade", notes: "A definir" },
-  { time: "14:00", activity: "Palestra: Fisioterapia Pélvica", category: "palestra", speaker: "Ivana Camargo", topic: "Fisioterapia Pélvica" },
-  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "15:00", activity: "Palestra: Traumato-ortopédica", category: "palestra", speaker: "Leonardo Neves", topic: "Traumato-ortopédica" },
-  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "16:00", activity: "Palestra Especial da FILA", category: "palestra", speaker: "Palestrante da FILA", topic: "Apresentação Patrocinador FILA" },
+  { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação artística e cultural" },
+  { time: "14:00", activity: "Diversidade sexual e de gênero na fisioterapia", category: "palestra", speaker: "Ivana Camargo", topic: "Fisioterapia Pélvica", notes: "Perguntas abertas ao final" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo" },
+  { time: "15:00", activity: "Palestra: Traumato-ortopédica", category: "palestra", speaker: "Leonardo Neves", topic: "Traumato-ortopédica", notes: "Perguntas abertas ao final" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo" },
+  { time: "16:00", activity: "Palestra Especial da FILA", category: "palestra", speaker: "Wagner Rosa de Oliveira (FILA)", topic: "Tecnologia e Performance", notes: "Perguntas abertas ao final" },
   { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
-  { time: "17:10", activity: "Coffee Break", category: "intervalo", notes: "A definir" },
-  { time: "19:00", activity: "Workshops Simultâneos (3 turmas)", category: "workshop", notes: "Local: UFRGS - ESEFID • Pélvica (Nathália Casagrande), Dermato (Manoela Neves) e Traumato/Esportiva (20 vagas cada)" },
+  { time: "17:10", activity: "Coffee Break", category: "intervalo" },
+  { time: "19:00", activity: "Workshops Simultâneos", category: "workshop", topic: "Fisioterapia Pélvica, Dermatofuncional e Órtese & Prótese", notes: "Local: UFRGS - ESEFID" },
 ];
 
 const dia2: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
-  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "A definir" },
-  { time: "09:30", activity: "Palestra: Fisioterapia Cardiorrespiratória", category: "palestra", speaker: "Caroline Jacoby", topic: "Cardiorrespiro (Fibrose Cística)" },
-  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "10:30", activity: "Palestra: Neurofuncional Adulto", category: "palestra", speaker: "Camila Pinto", topic: "Neuro Adulto - Doença de Parkinson" },
-  { time: "11:20", activity: "Palestra: Neurofuncional Pediátrica", category: "palestra", speaker: "Mylena Francini", topic: "Neuro Pediátrica" },
-  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Perguntas + break" },
+  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "Abertura do segundo dia" },
+  { time: "09:30", activity: "Desmame da ventilação", category: "palestra", speaker: "Caroline Schmidt", topic: "Fisioterapia Respiratória", notes: "Perguntas abertas ao final" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo" },
+  { time: "10:30", activity: "Doença de Parkinson", category: "palestra", speaker: "Camila Pinto", topic: "Neurofuncional", notes: "Perguntas abertas ao final" },
+  { time: "11:20", activity: "Paralisia Cerebral", category: "palestra", speaker: "Mylena Francini", topic: "Neurofuncional Pediátrica", notes: "Perguntas abertas ao final" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
-  { time: "13:30", activity: "Abertura do Turno da Tarde", category: "solenidade", notes: "A definir" },
-  { time: "14:00", activity: "Palestra: Terapia Intensiva e Adulto Crítico", category: "palestra", speaker: "Gabriela Jaroceski", topic: "Terapia Intensiva e Adulto Crítico" },
-  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "15:00", activity: "Palestra: Cuidados Paliativos", category: "palestra", speaker: "Mariana Vieira", topic: "Cuidados Paliativos" },
-  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Perguntas + break" },
-  { time: "16:00", activity: "Palestra: Fisioterapia Cardiovascular", category: "palestra", speaker: "Denis Selau", topic: "Residente Cardiovascular HCPA" },
+  { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação artística e cultural" },
+  { time: "14:00", activity: "Palestra: Terapia Intensiva e Adulto Crítico", category: "palestra", speaker: "Gabriela Jaroceski", topic: "Terapia Intensiva e Adulto Crítico", notes: "Perguntas abertas ao final" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo" },
+  { time: "15:00", activity: "Palestra: Cuidados Paliativos", category: "palestra", speaker: "Mariana Vieira", topic: "Cuidados Paliativos", notes: "Perguntas abertas ao final" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo" },
+  { time: "16:00", activity: "Reabilitação cardíaca: princípios, segurança e efetividade", category: "palestra", speaker: "Dênis Selau", topic: "Fisioterapia Cardiovascular", notes: "Perguntas abertas ao final" },
   { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
-  { time: "17:10", activity: "Coffee Break", category: "intervalo", notes: "A definir" },
-  { time: "19:00", activity: "Workshops Simultâneos (3 turmas)", category: "workshop", notes: "Local: UFRGS - ESEFID • Dry Needling (Golden), VOLL e Workshop Prático (20 vagas cada)" },
+  { time: "17:10", activity: "Coffee Break", category: "intervalo" },
+  { time: "19:00", activity: "Workshops Simultâneos", category: "workshop", topic: "Dry Needling, Pilates e Eletromiografia com Python", notes: "Local: UFRGS - ESEFID" },
 ];
 
 const dia3: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
-  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "A definir" },
-  { time: "09:30", activity: "Mesa-Redonda 1", category: "mesa", topic: "Tema a definir", speaker: "Participantes da UFCSPA/UFRGS" },
-  { time: "10:20", activity: "Intervalo", category: "intervalo", notes: "Pausa para café e networking" },
-  { time: "10:30", activity: "Mesa-Redonda 2", category: "mesa", topic: "Tema a definir", speaker: "Participantes da UFCSPA/UFRGS" },
-  { time: "11:20", activity: "Mesa-Redonda: Atenção Primária à Saúde", category: "mesa", topic: "APS (Atenção Primária à Saúde)", speaker: "Participantes a definir" },
-  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo", notes: "Break para o almoço" },
+  { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "Abertura das mesas-redondas" },
+  { time: "09:30", activity: "Mesa: Entrei na Fisio, e agora?", category: "mesa", topic: "Vivências Acadêmicas e Integração", speaker: "Professor Luiz Fernando Alvarenga", notes: "Perguntas abertas ao final" },
+  { time: "10:20", activity: "Intervalo", category: "intervalo" },
+  { time: "10:30", activity: "Mesa: Atenção Primária à Saúde", category: "mesa", topic: "Atenção Primária à Saúde (APS)", speaker: "A definir", notes: "Perguntas abertas ao final" },
+  { time: "11:20", activity: "Mesa: Redes Sociais", category: "mesa", topic: "Comunicação e Redes Sociais na Fisioterapia", speaker: "Professora Ângela Ghisleni", notes: "Perguntas abertas ao final" },
+  { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
-  { time: "13:30", activity: "Abertura Cultural", category: "cultural", notes: "Apresentação especial de Ballet" },
-  { time: "14:00", activity: "Mesa-Redonda: Aspectos da Dor", category: "mesa", topic: "Aspectos da Dor", speaker: "Francisco Araújo, Rafael Vercelino e Adriane Vieira" },
-  { time: "14:50", activity: "Intervalo", category: "intervalo", notes: "Pausa rápida" },
-  { time: "15:00", activity: "Mesa-Redonda: Transição de Carreira", category: "mesa", topic: "Me formei, e agora?", speaker: "Participantes a definir" },
-  { time: "15:50", activity: "Intervalo", category: "intervalo", notes: "Pausa rápida" },
-  { time: "16:00", activity: "Mesa-Redonda: Fisioterapia Esportiva", category: "mesa", topic: "GreNal (Atuação no Futebol Profissional)", speaker: "Participantes a definir" },
-  { time: "16:50", activity: "Encerramento Oficial da Jornada", category: "solenidade", notes: "A definir" },
-  { time: "17:10", activity: "Coffee Break de Confraternização", category: "intervalo", notes: "A definir" },
+  { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação especial de Ballet" },
+  { time: "14:00", activity: "Mesa: Me formei, e agora?", category: "mesa", topic: "Transição de Carreira e Mercado", speaker: "A definir", notes: "Perguntas abertas ao final" },
+  { time: "14:50", activity: "Intervalo", category: "intervalo" },
+  { time: "15:00", activity: "Mesa: Aspectos da Dor", category: "mesa", topic: "Aspectos da Dor e Neurociência", speaker: "Professora Camila Pinto", notes: "Perguntas abertas ao final" },
+  { time: "15:50", activity: "Intervalo", category: "intervalo" },
+  { time: "16:00", activity: "Mesa GreNal: Além das quatro linhas", category: "mesa", theme: "Além das quatro linhas: O Dia a Dia do Fisioterapeuta na Dupla GreNal", topic: "Fisioterapia Esportiva", speaker: "Professor Leandro Bonetti", notes: "Perguntas abertas ao final" },
+  { time: "17:00", activity: "Encerramento Oficial da Jornada", category: "solenidade", notes: "Agradecimentos e encerramento do evento" },
 ];
 
 const dias = [
@@ -99,7 +99,7 @@ const dias = [
   {
     id: "dia3",
     label: "DIA 15/10 • QUINTA",
-    subtitle: "Mesas-Redondas, Momento Cultural e Encerramento",
+    subtitle: "Mesas-Redondas e Encerramento",
     local: "UFCSPA",
     data: dia3,
   },
@@ -203,7 +203,7 @@ export function Schedule() {
                   <span className="font-mono text-xs font-semibold uppercase tracking-wider">Atenção</span>
                 </div>
                 <p className="font-body text-xs text-ink/75 leading-relaxed">
-                  Os workshops práticos acontecem nos dias 13 e 14 às 19h no <strong>ESEFID - UFRGS</strong>, com limite de 20 participantes por turma.
+                  Os workshops práticos acontecem nos dias 13 e 14 às 19h no <strong>ESEFID - UFRGS</strong>, distribuídos por áreas temáticas.
                 </p>
               </div>
             </div>
@@ -285,25 +285,39 @@ export function Schedule() {
                           </span>
                         </div>
 
-                        {/* Title */}
+                        {/* Title / Tema */}
                         <h4 className="font-display text-xl sm:text-2xl text-ink leading-snug">
                           {item.activity}
                         </h4>
 
-                        {/* Speaker & Topic */}
-                        {(item.speaker || item.topic) && (
+                        {/* Speaker, Theme & Topic */}
+                        {(item.speaker || item.topic || item.theme) && (
                           <div className="mt-3 pt-3 border-t border-wire/40 flex flex-col gap-1.5">
+                            {item.theme && (
+                              <div className="flex items-start gap-2 text-xs font-mono text-ink/80">
+                                <Sparkles className="w-3.5 h-3.5 text-bordo shrink-0 mt-0.5" />
+                                <span>
+                                  <strong className="text-bordo font-semibold uppercase tracking-wider">Tema: </strong>
+                                  <span className="font-body text-ink/90 font-medium">{item.theme}</span>
+                                </span>
+                              </div>
+                            )}
                             {item.topic && (
-                              <div className="flex items-center gap-2 text-xs font-mono text-ink/70">
+                              <div className="flex items-center gap-2 text-xs font-mono text-ink/75">
                                 <Tag className="w-3.5 h-3.5 text-bordo shrink-0" />
-                                <span>{item.topic}</span>
+                                <span>
+                                  <strong className="text-bordo font-semibold uppercase tracking-wider">Área: </strong>
+                                  {item.topic}
+                                </span>
                               </div>
                             )}
                             {item.speaker && (
                               <div className="flex items-start gap-2 text-sm text-ink/90">
                                 <User className="w-4 h-4 text-bordo mt-0.5 shrink-0" />
                                 <span className="font-body font-medium">
-                                  {item.category === "mesa" ? "Participantes: " : "Palestrante: "}
+                                  <span className="text-ink/65">
+                                    {item.category === "mesa" ? "Moderador(a): " : "Palestrante: "}
+                                  </span>
                                   <strong className="text-ink font-semibold">{item.speaker}</strong>
                                 </span>
                               </div>
@@ -311,10 +325,11 @@ export function Schedule() {
                           </div>
                         )}
 
-                        {/* Observations / Notes */}
-                        {item.notes && (
-                          <div className="mt-2 text-xs font-body text-ink/65 italic">
-                            {item.notes}
+                        {/* Observations / Notes / Perguntas (nunca exibido em intervalos) */}
+                        {item.notes && item.category !== "intervalo" && (
+                          <div className="mt-2.5 pt-2 border-t border-wire/30 text-xs font-body text-ink/70 italic flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-bordo/60 shrink-0" />
+                            <span>{item.notes}</span>
                           </div>
                         )}
                       </div>

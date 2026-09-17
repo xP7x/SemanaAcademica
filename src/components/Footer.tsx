@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SYMPLA_INSCRICAO_URL } from "../lib/constants";
 
 export function Footer() {
   return (
@@ -16,12 +17,14 @@ export function Footer() {
           </p>
         </div>
 
-        <Link
-          to="/inscricao"
-          className="px-8 py-3 font-display text-lg uppercase tracking-wider bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-colors shadow-md shrink-0"
+        <a
+          href={SYMPLA_INSCRICAO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-8 py-3 font-display text-lg uppercase tracking-wider bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-all shadow-md shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
         >
-          Inscrições em breve
-        </Link>
+          Inscreva-se
+        </a>
       </div>
 
       <div className="pt-8 border-t border-wire/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">

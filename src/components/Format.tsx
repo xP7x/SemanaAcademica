@@ -19,7 +19,7 @@ export function Format() {
       day: "DIA 3 • 15 OUT",
       dayId: "dia3",
       title: "Mesas-Redondas e Encerramento",
-      desc: "Dia dedicado a debates aprofundados em mesas-redondas com convidados e momento cultural no encerramento da jornada."
+      desc: "Dia dedicado a debates aprofundados em mesas-redondas temáticas com convidados e encerramento oficial da jornada."
     }
   ];
 

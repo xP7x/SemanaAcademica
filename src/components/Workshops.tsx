@@ -44,9 +44,9 @@ const workshopsData: WorkshopItem[] = [
     day: "13/10 • Terça-feira",
     dayNumber: "13",
     time: "19:00",
-    title: "Workshop de Traumato / Esportiva",
-    type: "Traumato-ortopédica & Esportiva",
-    speaker: "A definir",
+    title: "Workshop de Órtese e Prótese",
+    type: "Órtese e Prótese — Empresa Ottobock",
+    speaker: "Empresa Ottobock",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
   },
@@ -57,7 +57,7 @@ const workshopsData: WorkshopItem[] = [
     time: "19:00",
     title: "Workshop de Dry Needling",
     type: "Terapia Manual & Dry Needling",
-    speaker: "Golden",
+    speaker: "Empresa Golden",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
   },
@@ -66,21 +66,20 @@ const workshopsData: WorkshopItem[] = [
     day: "14/10 • Quarta-feira",
     dayNumber: "14",
     time: "19:00",
-    title: "Workshop VOLL",
-    type: "Pilates / Tema institucional",
-    speaker: "VOLL",
+    title: "Workshop De Pilates",
+    type: "Pilates — Empresa VOLL",
+    speaker: "Empresa VOLL",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
-    note: "Tema do workshop em alinhamento com patrocinadores",
   },
   {
     id: 6,
     day: "14/10 • Quarta-feira",
     dayNumber: "14",
     time: "19:00",
-    title: "Workshop Prático",
-    type: "Atividade Prática Simultânea",
-    speaker: "A definir",
+    title: "Fundamentos da Eletromiografia e Análise com Python",
+    type: "Eletromiografia & Python",
+    speaker: "André Ivaniski-Mello",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
   },
@@ -195,12 +194,6 @@ export function Workshops() {
                     <strong className="text-ink font-semibold">{ws.speaker}</strong>
                   </div>
                 </div>
-
-                {ws.note && (
-                  <p className="text-[11px] font-body text-ink/60 italic mb-2">
-                    * {ws.note}
-                  </p>
-                )}
               </div>
 
               <div className="mt-6 pt-4 border-t border-wire flex flex-col gap-2.5">

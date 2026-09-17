@@ -62,8 +62,8 @@ export function Audience() {
             <span className="font-display text-5xl text-bordo leading-none">02</span>
             <div>
               <h2 className="font-display text-3xl text-ink leading-tight mt-1">O PÚBLICO</h2>
-              <p className="font-body text-sm text-ink/70 mt-3 leading-relaxed">
-                Um espaço plural, acolhedor e integrador para toda a Fisioterapia.
+              <p className="font-body text-lg sm:text-xl text-ink/85 mt-4 leading-relaxed">
+                Graduandos de fisioterapia de qualquer universidade.
               </p>
             </div>
           </motion.div>
@@ -85,43 +85,26 @@ export function Audience() {
               Todos são <span className="text-bordo">muito bem-vindos!</span>
             </h3>
             <p className="font-body text-lg sm:text-xl text-ink/85 leading-relaxed">
-              Do primeiro ao último semestre, incluindo <strong>egressos e magistrados</strong>, <strong>discentes e docentes</strong> de qualquer instituição de ensino.
+              Do primeiro ao último semestre, incluindo <strong>egressos e magistrados</strong>, <strong>discentes e docentes</strong>.
             </p>
           </motion.div>
 
-          {/* Cards complementares */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col border-l-2 border-bordo/30 pl-6"
-            >
-              <span className="font-display text-6xl md:text-7xl text-bordo mb-2">
-                <Counter from={0} to={300} />+
-              </span>
-              <span className="font-display text-xl text-ink mb-1">Participantes Esperados</span>
-              <span className="font-body text-sm text-ink/75 leading-relaxed">
-                Integração direta entre discentes da UFCSPA, UFRGS e estudantes de todo o estado.
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col border-l-2 border-wire pl-6"
-            >
-              <span className="font-display text-4xl text-ink mb-2 pt-2">
-                Qualquer Instituição
-              </span>
-              <span className="font-body text-sm text-ink/75 leading-relaxed">
-                Inscrições abertas para estudantes de graduação, pós-graduandos, residentes, professores e profissionais da saúde de qualquer faculdade ou universidade.
-              </span>
-            </motion.div>
-          </div>
+          {/* Card complementar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="flex flex-col border-l-2 border-bordo/30 pl-6"
+          >
+            <span className="font-display text-6xl md:text-7xl text-bordo mb-2">
+              <Counter from={0} to={300} />+
+            </span>
+            <span className="font-display text-xl text-ink mb-1">Participantes Esperados</span>
+            <span className="font-body text-sm text-ink/75 leading-relaxed">
+              Integração direta entre discentes da UFCSPA, UFRGS e estudantes de todo o estado.
+            </span>
+          </motion.div>
         </div>
       </div>
     </section>

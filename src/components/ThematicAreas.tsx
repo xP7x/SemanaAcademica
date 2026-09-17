@@ -21,41 +21,60 @@ export interface Speaker {
   id: number;
   name: string;
   role: string;
-  summary: string;
+  summary?: string;
   areas: string[];
   photo?: string;
   photoPosition?: string;
 }
 
-const mockSpeakers: Speaker[] = [
-  { id: 1, name: "Thaiane Cavalheiro", role: "Fisioterapeuta Dermatofuncional • Pós-operatório Cirurgia Plástica", summary: "Focada em técnicas avançadas de recuperação cirúrgica e bem-estar estético.", areas: ["Dermatofuncional"], photo: "/images/convidados/foto thaiane.jpeg", photoPosition: "center 15%" },
+const mockSpeakersList: Speaker[] = [
+  { id: 1, name: "Thaiane Cavalheiro da Silva", role: "Fisioterapeuta Dermatofuncional • Pós-operatório Cirurgia Plástica", summary: "Focada em técnicas avançadas de recuperação cirúrgica e bem-estar estético.", areas: ["Dermatofuncional"], photo: "/images/convidados/foto thaiane.jpeg", photoPosition: "center 15%" },
   { id: 2, name: "Murilo de Carvalho", role: "Fisioterapeuta Gerontológico", summary: "Dedica-se à melhoria da qualidade de vida, mobilidade e independência funcional na terceira idade.", areas: ["Gerontologia"], photo: "/images/convidados/foto murilo.jpeg", photoPosition: "center 15%" },
   { id: 3, name: "Mauren Fraga", role: "Fisioterapeuta Esportiva", summary: "Atuação especializada na prevenção, reabilitação e desempenho de atletas de alto rendimento.", areas: ["Fisioterapia esportiva"], photo: "/images/convidados/foto mauren.jpeg", photoPosition: "center 20%" },
   { id: 4, name: "Ivana Camargo", role: "Fisioterapia Pélvica-Hospitalar • Saúde Trans", summary: "Referência na atenção às disfunções do assoalho pélvico e pioneira no cuidado à população trans.", areas: ["Fisioterapia pélvica"], photo: "/images/convidados/Foto ivana.jpg", photoPosition: "center 20%" },
   { id: 5, name: "Leonardo Neves", role: "Fisioterapeuta Traumato-ortopédico • Especialista em Reabilitação", summary: "Atua no manejo avançado de fraturas e traumas músculo-esqueléticos de alta complexidade.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Foto Leonardo.jpg", photoPosition: "center 20%" },
-  { id: 6, name: "Caroline Jacoby", role: "Professora & Fisioterapeuta Especialista em Cardiorrespiratória • UFCSPA", summary: "Docente e pesquisadora com vasta experiência no manejo respiratório crônico e suporte ventilatório.", areas: ["Fisioterapia respiratória"], photo: "/images/convidados/Foto Caroline Jacoby.jpeg", photoPosition: "center 20%" },
-  { id: 7, name: "Camila Pinto", role: "Fisioterapeuta Neurofuncional Adulto • PhD PPGCMH", summary: "Pesquisadora e clínica especialista no manejo motor e reabilitação na Doença de Parkinson.", areas: ["Neurofuncional"] },
+  { id: 6, name: "Caroline Schmidt", role: "Doutoranda em Pneumologia e Residência em Saúde da Criança", areas: ["Fisioterapia respiratória"], photo: "/images/convidados/Foto Caroline Jacoby.jpeg", photoPosition: "center 20%" },
+  { id: 7, name: "Camila Pinto", role: "Fisioterapeuta Neurofuncional Adulto • PhD PPGCMH", summary: "Pesquisadora e clínica especialista no manejo motor e reabilitação na Doença de Parkinson.", areas: ["Neurofuncional"], photo: "/images/convidados/Camila Pinto.png", photoPosition: "center 20%" },
   { id: 8, name: "Mylena Francini", role: "Fisioterapeuta Neurofuncional Pediátrica • PPGCMH", summary: "Especialista em neurodesenvolvimento infantil e intervenção precoce em neuropediatria.", areas: ["Neurofuncional", "Fisioterapia pediátrica"] },
   { id: 9, name: "Gabriela Jaroceski", role: "Fisioterapeuta Especialista em Terapia Intensiva", summary: "Foco no manejo ventilatório, desmame e mobilização precoce do paciente crítico na UTI.", areas: ["Terapia intensiva", "Fisioterapia respiratória"] },
   { id: 10, name: "Mariana Vieira", role: "Médica Especialista em Cuidados Paliativos • Formação em Perdas e Luto", summary: "Abordagem interdisciplinar humanizada focada na qualidade de vida e alívio do sofrimento.", areas: ["Cuidados paliativos"], photo: "/images/convidados/dra-mariana-vieira.jpg", photoPosition: "center 100%" },
-  { id: 11, name: "Denis Selau", role: "Fisioterapeuta UFRGS • Residente em Fisioterapia Cardiovascular HCPA", summary: "Atuação no cuidado e reabilitação cardiopulmonar de alta densidade tecnológica no HCPA.", areas: ["Fisioterapia cardiovascular"], photo: "/images/convidados/Foto Denis Selau.jpg", photoPosition: "center 20%" },
-  { id: 12, name: "Francisco Araújo", role: "Fisioterapeuta • Pesquisador em Dor Crônica", summary: "Convidado da mesa-redonda de 'Aspectos da Dor', explorando neurociência e dor persistente.", areas: ["Traumato-ortopédica", "Neurofuncional"] },
-  { id: 13, name: "Rafael Vercelino", role: "Professor & Pesquisador em Mecanismos da Dor", summary: "Especialista em aspectos neurobiológicos e abordagens terapêuticas interdisciplinares na dor.", areas: ["Traumato-ortopédica", "Neurofuncional"] },
-  { id: 14, name: "Adriane Vieira", role: "Professora & Fisioterapeuta • UFRGS", summary: "Pesquisa e prática clínica focada no cuidado multidimensional e alívio da dor.", areas: ["Gerontologia", "Traumato-ortopédica"] },
+  { id: 11, name: "Dênis Selau", role: "Fisioterapeuta UFRGS • Residente em Fisioterapia Cardiovascular HCPA", summary: "Atuação no cuidado e reabilitação cardiopulmonar de alta densidade tecnológica no HCPA.", areas: ["Fisioterapia cardiovascular"], photo: "/images/convidados/Foto Denis Selau.jpg", photoPosition: "center 20%" },
+  { id: 12, name: "Francisco Araújo", role: "Fisioterapeuta • Professor de Fisioterapia da UFRGS e Pesquisador ", summary: "Convidado da mesa-redonda de 'Aspectos da Dor', explorando neurociência e dor persistente.", areas: ["Traumato-ortopédica", "Neurofuncional"], photo: "/images/convidados/Francisco Araújo.jpg", photoPosition: "center 20%" },
+  { id: 13, name: "Rafael Vercelino", role: "Professor & Pesquisador em Mecanismos da Dor", summary: "Especialista em aspectos neurobiológicos e abordagens terapêuticas interdisciplinares na dor.", areas: ["Traumato-ortopédica", "Neurofuncional"], photo: "/images/convidados/Rafael.webp", photoPosition: "center 20%" },
+  { id: 14, name: "Adriane Vieira", role: "Professora & Fisioterapeuta • UFRGS", summary: "Pesquisa e prática clínica focada no cuidado multidimensional e alívio da dor.", areas: ["Gerontologia", "Traumato-ortopédica"], photo: "/images/convidados/Adriane Vieira.png", photoPosition: "center 20%" },
   { id: 15, name: "Nathália Casagrande", role: "Fisioterapeuta Pélvica • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Fisioterapia Pélvica com foco em avaliação e técnicas clínicas.", areas: ["Fisioterapia pélvica"], photo: "/images/convidados/Foto Nathália.jpg", photoPosition: "center 15%" },
-  { id: 16, name: "Manoela Neves", role: "Fisioterapeuta Dermatofuncional • Ministrante do Workshop Prático", summary: "Instrutora do workshop prático de Dermatofuncional no laboratório ESEFID da UFRGS.", areas: ["Dermatofuncional"], photo: "/images/convidados/Foto Manoela.jpg", photoPosition: "center 10%" },
-  { id: 17, name: "Felipe Xavier", role: "Fisioterapeuta do Grêmio FBPA • Fisioterapia Esportiva", summary: "Convidado da mesa-redonda GreNal, abordando prevenção de lesões e reabilitação no futebol profissional de elite.", areas: ["Fisioterapia esportiva", "Traumato-ortopédica"], photo: "/images/convidados/Felipe Xavier.jpeg", photoPosition: "center 20%" },
+  { id: 16, name: "Manoela Neves", role: "Fisioterapeuta Dermatofuncional • Ministrante do Workshop Prático", areas: ["Dermatofuncional"], photo: "/images/convidados/Foto Manoela.jpg", photoPosition: "center 10%" },
   { id: 18, name: "Téo Fronzi Rodrigues", role: "Fisioterapeuta do Sport Club Internacional • Fisioterapia Esportiva", summary: "Convidado da mesa-redonda GreNal, compartilhando a rotina e as abordagens funcionais no futebol de alta performance.", areas: ["Fisioterapia esportiva", "Traumato-ortopédica"], photo: "/images/convidados/Téo Fronzi Rodrigues.jpg", photoPosition: "center 20%" },
   { id: 19, name: "Bruna Eibel", role: "Professora & Fisioterapeuta • UFCSPA / Instituto de Cardiologia", summary: "Referência em reabilitação cardiovascular, pesquisa translacional e fisiologia do exercício clínico.", areas: ["Fisioterapia cardiovascular"], photo: "/images/convidados/Bruna Eibel .jpg", photoPosition: "center 20%" },
   { id: 20, name: "Douglas Stahnke", role: "Fisioterapeuta Especialista em Traumato-ortopédica & Terapia Manual", summary: "Convidado com atuação em avaliação funcional, controle de sobrecarga e reabilitação ortopédica.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Douglas Stahnke.jpg", photoPosition: "center 15%" },
-  { id: 21, name: "Wagner", role: "Fisioterapeuta Especialista • Reabilitação Funcional", summary: "Convidado da mesa-redonda trazendo práticas clínicas integradas e evidências atuais no movimento humano.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Foto Wagner.jpeg", photoPosition: "center 20%" },
-  { id: 22, name: "Natasha Perusso", role: "Fisioterapeuta em Saúde Coletiva • Atenção Primária à Saúde", summary: "Convidada da mesa de APS, destacando o papel estratégico do fisioterapeuta no SUS e saúde comunitária.", areas: ["Gerontologia"], photo: "/images/convidados/Natasha Perusso.jpeg", photoPosition: "center 20%" },
-  { id: 23, name: "Julia Paulon Puerari", role: "Fisioterapeuta • Atenção Primária & Saúde da Família", summary: "Participante da mesa-redonda de APS, debatendo o cuidado em equipe multiprofissional e território.", areas: ["Gerontologia"], photo: "/images/convidados/Julia Paulon Puerari.jpeg", photoPosition: "center 20%" },
+  { id: 21, name: "Wagner Rosa de Oliveira", role: "Fisioterapeuta Especialista • Palestrante FILA", summary: "Palestrante da sessão especial em parceria com a FILA, abordando biomecânica, tecnologia e performance esportiva.", areas: ["Fisioterapia esportiva", "Traumato-ortopédica"], photo: "/images/convidados/Foto Wagner.jpeg", photoPosition: "center 20%" },
+  { id: 22, name: "Natasha Perusso", role: "Fisioterapeuta • Responsável Técnica na Brava", summary: "Responsável técnica pelo setor de Fisioterapia da Brava, conciliando a prática clínica à gestão do serviço.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Natasha Perusso.jpeg", photoPosition: "center 20%" },
+  { id: 23, name: "Julia Paulon Puerari", role: "Fisioterapeuta • Mesa: 'Me formei, e agora?'", summary: "Convidada debatedora na mesa de transição de carreira, inserção no mercado e caminhos profissionais.", areas: [], photo: "/images/convidados/Julia Paulon Puerari.jpeg", photoPosition: "center 20%" },
   { id: 24, name: "Ana Carolina de Souza Kummer", role: "Fisioterapeuta • Residência & Prática Hospitalar", summary: "Convidada debatedora compartilhando experiências formativas e intervenções clínicas humanizadas.", areas: ["Neurofuncional", "Fisioterapia respiratória"], photo: "/images/convidados/Ana Carolina de Souza Kummer .jpg", photoPosition: "center 20%" },
-  { id: 25, name: "Vithória Messa", role: "Fisioterapeuta • Mesa-redonda: 'Me formei, e agora?'", summary: "Debatedora na mesa de transição de carreira, discutindo inserção no mercado e caminhos profissionais.", areas: ["Traumato-ortopédica"], photo: "/images/convidados/Vithória Messa.jpeg", photoPosition: "center 20%" },
+  { id: 25, name: "Vithória Messa", role: "Fisioterapeuta do Grêmio FBPA • Mesa GreNal", summary: "Fisioterapeuta graduada pela Universidade Federal do Rio Grande do Sul, com atuação na área de ortopedia e fisioterapia esportiva. Desenvolve atividades no Grêmio Foot-Ball Porto Alegrense, com ênfase no atendimento a atletas de futebol masculino e feminino nas categorias de formação dos 7 aos 15 anos.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Vithória Messa.jpeg", photoPosition: "center 20%" },
   { id: 26, name: "Raphael Caballero", role: "Fisioterapeuta • Pesquisador & Especialista", summary: "Participante convidado das mesas-redondas da Jornada com ênfase em prática baseada em evidências.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Raphael Caballero.jpg", photoPosition: "center 20%" },
-  { id: 27, name: "Francisca Pereira", role: "Fisioterapeuta • Prática Clínica & Interdisciplinaridade", summary: "Convidada especial das mesas-redondas da Jornada Acadêmica UFRGS & UFCSPA.", areas: ["Gerontologia", "Cuidados paliativos"], photo: "/images/convidados/Francisca Pereira.jpeg", photoPosition: "center 20%" },
+  { id: 27, name: "Francisca Pereira", role: "Fisioterapeuta • Mesa: 'Me formei, e agora?'", summary: "Convidada debatedora na mesa de transição de carreira, primeiros passos na profissão e atuação no mercado.", areas: [], photo: "/images/convidados/Francisca Pereira.jpeg", photoPosition: "center 20%" },
+  { id: 28, name: "André Ivaniski-Mello", role: "Pesquisador em Biomecânica & EMG • Ministrante do Workshop Prático", summary: "Instrutor do workshop prático de Fundamentos da Eletromiografia e Análise com Python no laboratório ESEFID da UFRGS.", areas: ["Neurofuncional", "Traumato-ortopédica"] },
+  { id: 29, name: "Luiz Fernando Alvarenga", role: "Professor & Fisioterapeuta • Mesa: 'Entrei na Fisio, e agora?'", areas: [] },
+  { id: 30, name: "Laura Zandavalli", role: "Fisioterapeuta • Convidada das Mesas-redondas", areas: [] },
+  { id: 31, name: "Victória Dames", role: "Graduanda em Fisioterapia • UFRGS", summary: "Estudante do último semestre de graduação de Fisioterapia da UFRGS.", areas: [] },
+  { id: 32, name: "Bruna Malgor", role: "Fisioterapeuta • Convidada das Mesas-redondas", areas: [] },
+  { id: 33, name: "Luisa Garcia", role: "Fisioterapeuta • Convidada das Mesas-redondas", areas: [] },
+  { id: 34, name: "Angela Ghisleni", role: "Professora & Fisioterapeuta • Mesa: Redes Sociais", areas: [] },
+  { id: 35, name: "João Almeida", role: "Fisioterapeuta • Convidado das Mesas-redondas", areas: [] },
+  { id: 36, name: "Matheus Seidel", role: "Fisioterapeuta • Convidado das Mesas-redondas", areas: [] },
+  { id: 37, name: "Filipe Schedler", role: "Fisioterapeuta • Convidado das Mesas-redondas", areas: [] },
+  { id: 38, name: "Caroline Leal", role: "Fisioterapeuta Especialista em Terapia Intensiva", areas: ["Terapia intensiva"], photo: "/images/convidados/Caroline Leal .jpg", photoPosition: "center 20%" },
+  { id: 39, name: "André Krüger", role: "Fisioterapeuta Especialista em Esporte de Alto Rendimento", summary: "André Krüger é fisioterapeuta especializado em esporte de alto rendimento, graduado pela Faculdade Anhanguera de Campinas e pós-graduado em Ortopedia Multiprofissional pelo Albert Einstein.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/André Kruguer.jpeg?v=recorte", photoPosition: "center center" },
+  { id: 40, name: "Leandro Bonetti", role: "Professor & Pesquisador PPG Ciências da Reabilitação • UFCSPA", summary: "Professor do Departamento de Fisioterapia e Pesquisador no Programa de Pós-graduação em Ciências da Reabilitação da Universidade Federal de Ciências da Saúde de Porto Alegre (UFCSPA - desde 2025).", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Leandro Bonetti.jpeg?v=recorte", photoPosition: "center center" },
+  { id: 41, name: "Vinicius de Borba Capaverde", role: "Fisioterapeuta Categorias de Base do Grêmio FBPA • Doutorando UFCSPA", summary: "Doutorando no programa Ciências da Reabilitação na Universidade Federal de Ciências da Saúde de Porto Alegre e trabalha como fisioterapeuta das categorias de base do Grêmio Foot-Ball Porto Alegrense.", areas: ["Traumato-ortopédica", "Fisioterapia esportiva"], photo: "/images/convidados/Vinícius de Borba Capaverde.jpeg", photoPosition: "center 20%" },
+  { id: 42, name: "Ariane", role: "Assessora de Relações Institucionais do CREFITO-5", areas: [] },
 ];
+
+// Ordenado alfabeticamente por nome
+const mockSpeakers: Speaker[] = [...mockSpeakersList].sort((a, b) =>
+  a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" })
+);
 
 function SpeakerImage({ name, photo, photoPosition }: { name: string; photo?: string; photoPosition?: string }) {
   const [hasError, setHasError] = useState(false);
@@ -252,7 +271,11 @@ export function ThematicAreas() {
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="font-display text-2xl text-ink mb-1">{speaker.name}</h3>
                     <p className="font-body text-ink/70 text-sm mb-4">{speaker.role}</p>
-                    <p className="font-body text-ink/80 text-sm mb-6 flex-1">{speaker.summary}</p>
+                    {speaker.summary ? (
+                      <p className="font-body text-ink/80 text-sm mb-6 flex-1">{speaker.summary}</p>
+                    ) : (
+                      <div className="flex-1 mb-6" />
+                    )}
                     <div className="flex flex-wrap gap-2 mt-auto">
                       {speaker.areas.map(a => (
                         <button

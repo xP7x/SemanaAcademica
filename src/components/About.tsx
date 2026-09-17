@@ -16,14 +16,25 @@ export function About() {
           </motion.div>
         </div>
         <div className="md:w-2/3">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-body text-xl md:text-2xl leading-relaxed text-ink/90"
-          >
-            A Jornada Acadêmica de Fisioterapia UFRGS & UFCSPA reúne a comunidade acadêmica para três dias de integração, troca de conhecimento e valorização das diferentes áreas de atuação da Fisioterapia. O evento aproxima estudantes, professores, projetos e ligas acadêmicas das duas universidades, além de receber participantes de outras instituições de ensino.
-          </motion.p>
+          <div className="flex flex-col gap-5">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-body text-xl md:text-2xl leading-relaxed text-ink/90"
+            >
+              A Jornada Acadêmica de Fisioterapia <strong>UFRGS</strong> &amp; <strong>UFCSPA</strong> reúne a comunidade acadêmica para três dias de integração, troca de conhecimento e valorização das diferentes áreas de atuação da Fisioterapia.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-body text-xl md:text-2xl leading-relaxed text-ink/90"
+            >
+              O evento aproxima estudantes, professores, projetos e ligas acadêmicas das duas universidades, além de receber participantes de outras instituições de ensino.
+            </motion.p>
+          </div>
         </div>
       </div>
     </section>

@@ -128,7 +128,7 @@ export function EventLocations() {
             <div className="w-full h-56 sm:h-64 bg-wire/20 border-t border-b border-wire/40 relative">
               <iframe
                 title="Mapa ESEFID UFRGS"
-                src="https://maps.google.com/maps?q=ESEFID+UFRGS%2C+Rua+Felizardo%2C+750+-+Jardim+Bot%C3%A2nico%2C+Porto+Alegre+-+RS&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=ESEFID+UFRGS%2C+Rua+Felizardo%2C+750%2F10+-+Jardim+Bot%C3%A2nico%2C+Porto+Alegre+-+RS&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

@@ -13,7 +13,7 @@ const sections: SectionIndexItem[] = [
     id: "sobre",
     number: "01",
     title: "SOBRE O EVENTO",
-    subtitle: "Integração acadêmica UFRGS & UFCSPA"
+    subtitle: "Integração acadêmica de fisioterapia"
   },
   {
     id: "publico",
@@ -78,10 +78,10 @@ export function HomeIndex() {
               </div>
 
               <div className="mt-4">
-                <h3 className="font-display text-xl text-ink group-hover:text-bordo transition-colors">
+                <h3 className="font-display text-xl sm:text-xl text-ink group-hover:text-bordo transition-colors">
                   {sec.title}
                 </h3>
-                <p className="font-body text-xs text-ink/65 mt-1 leading-snug">
+                <p className="font-body text-sm sm:text-xs text-ink/65 mt-1 leading-snug">
                   {sec.subtitle}
                 </p>
               </div>

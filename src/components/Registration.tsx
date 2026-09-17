@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { SYMPLA_INSCRICAO_URL } from "../lib/constants";
+import { ExternalLink } from "lucide-react";
 
 export function Registration() {
   return (
@@ -12,10 +14,10 @@ export function Registration() {
         >
           <span className="font-display text-5xl text-paper mb-6">08</span>
           <h2 className="font-display text-5xl sm:text-6xl md:text-8xl text-paper mb-6 leading-none">
-            INSCRIÇÕES EM BREVE
+            INSCRIÇÕES ABERTAS
           </h2>
           <p className="font-body text-paper/80 text-lg max-w-xl mb-10">
-            A abertura do primeiro lote de inscrições para a Jornada Acadêmica será divulgada nos canais oficiais das universidades e diretórios acadêmicos.
+            As inscrições para a Jornada Acadêmica da Fisioterapia UFRGS & UFCSPA já estão disponíveis através da plataforma Sympla. Garanta a sua vaga!
           </p>
           
           <div className="flex flex-col gap-2 mb-10 p-6 bg-paper/10 border border-paper/20 rounded-xl backdrop-blur-xs max-w-md w-full">
@@ -26,9 +28,15 @@ export function Registration() {
             </span>
           </div>
           
-          <div className="inline-flex items-center justify-center px-10 py-5 font-display text-2xl uppercase tracking-widest bg-paper text-bordo rounded-full shadow-[0_0_20px_rgba(244,233,221,0.2)] opacity-95">
-            Abertura em Breve via Sympla
-          </div>
+          <a
+            href={SYMPLA_INSCRICAO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-10 py-5 font-display text-2xl uppercase tracking-widest bg-paper text-bordo rounded-full shadow-[0_0_30px_rgba(244,233,221,0.35)] hover:bg-paper-2 hover:scale-105 active:scale-95 transition-all cursor-pointer font-bold"
+          >
+            <span>Inscreva-se</span>
+            <ExternalLink className="w-6 h-6" />
+          </a>
           <span className="font-mono text-xs text-paper/60 mt-6 block tracking-widest uppercase">
             * Vagas limitadas por workshop (20 pessoas por atividade na UFRGS - ESEFID)
           </span>

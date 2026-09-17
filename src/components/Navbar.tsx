@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
 import { Menu, X } from "lucide-react";
-import logoEvent from "../assets/logo/logoEvent.svg";
+import { SYMPLA_INSCRICAO_URL } from "../lib/constants";
+
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,24 +44,16 @@ export function Navbar() {
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-12">
         <Link to="/" className="flex items-center gap-3 group">
-          {/* Símbolo Oficial da Fisioterapia do Evento */}
-          <div className="w-10 h-10 rounded-full bg-paper flex items-center justify-center p-1 border border-bordo/20 group-hover:border-bordo transition-colors shadow-2xs overflow-hidden">
-            <img 
-              src={logoEvent} 
-              alt="Símbolo Fisioterapia" 
-              className="w-full h-full object-contain scale-125"
-            />
-          </div>
-          <span className="font-display font-bold text-2xl tracking-wide uppercase text-bordo hidden sm:block">
+          <span className="font-display font-bold text-2xl tracking-wide uppercase text-bordo">
             Jornada Fisioterapia
           </span>
         </Link>
-        
+
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-8">
           {links.map((link) => (
-            <Link 
-              key={link.path} 
+            <Link
+              key={link.path}
               to={link.path}
               className={cn(
                 "font-display text-lg uppercase tracking-wide hover:text-bordo transition-colors",
@@ -70,16 +63,18 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            to="/inscricao"
-            className="px-5 py-2.5 font-display text-base uppercase tracking-wide bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-colors shadow-md"
+          <a
+            href={SYMPLA_INSCRICAO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 font-display text-base uppercase tracking-wide bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
           >
-            Inscrições em breve
-          </Link>
+            Inscreva-se
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="lg:hidden p-2 text-ink cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir Menu"
@@ -92,8 +87,8 @@ export function Navbar() {
       {menuOpen && (
         <div className="lg:hidden flex flex-col items-center gap-5 py-8 bg-paper/98 border-t border-wire/30 shadow-lg px-6">
           {links.map((link) => (
-            <Link 
-              key={link.path} 
+            <Link
+              key={link.path}
               to={link.path}
               className={cn(
                 "font-display text-xl uppercase tracking-wide py-1",
@@ -103,12 +98,14 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            to="/inscricao"
-            className="mt-2 w-full max-w-xs text-center px-6 py-3 font-display text-lg uppercase tracking-wide bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-colors shadow-md"
+          <a
+            href={SYMPLA_INSCRICAO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 w-full max-w-xs text-center px-6 py-3 font-display text-lg uppercase tracking-wide bg-bordo text-paper rounded-full hover:bg-bordo-deep transition-all shadow-md active:scale-95 cursor-pointer"
           >
-            Inscrições em breve
-          </Link>
+            Inscreva-se
+          </a>
         </div>
       )}
     </motion.nav>
