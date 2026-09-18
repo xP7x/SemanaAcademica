@@ -22,7 +22,7 @@ const workshopsData: WorkshopItem[] = [
     day: "13/10 • Terça-feira",
     dayNumber: "13",
     time: "19:00",
-    title: "Workshop de Fisioterapia Pélvica",
+    title: "Fisioterapia na jornada materna: do pré-parto ao pós-parto",
     type: "Fisioterapia Pélvica",
     speaker: "Nathália Casagrande",
     location: "UFRGS - ESEFID",
@@ -44,9 +44,9 @@ const workshopsData: WorkshopItem[] = [
     day: "13/10 • Terça-feira",
     dayNumber: "13",
     time: "19:00",
-    title: "Workshop de Órtese e Prótese",
+    title: "Prescrição à Funcionalidade: Reabilitação Pré e Pós-Protética",
     type: "Órtese e Prótese — Empresa Ottobock",
-    speaker: "Empresa Ottobock",
+    speaker: "Maira Cunha - Empresa Ottobock",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
   },
@@ -104,7 +104,7 @@ export function Workshops() {
   return (
     <section className="py-24 bg-bordo-deep relative overflow-hidden text-paper" id="workshops">
       <div className="px-6 lg:px-24 max-w-6xl mx-auto mb-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -158,8 +158,8 @@ export function Workshops() {
       </div>
 
       <div className="pl-6 lg:pl-24" ref={containerRef}>
-        <motion.div 
-          drag="x" 
+        <motion.div
+          drag="x"
           dragConstraints={{ right: 0, left: -Math.max(0, width) }}
           whileTap={{ cursor: "grabbing" }}
           className="flex gap-6 cursor-grab pb-12 pr-6"

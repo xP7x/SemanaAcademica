@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
-import { Clock, User, Sparkles, MapPin, Tag, ArrowDown } from "lucide-react";
+import { Clock, User, Users, Sparkles, MapPin, Tag, ArrowDown } from "lucide-react";
 
 type ActivityCategory =
   | "palestra"
@@ -21,6 +21,7 @@ type Activity = {
   topic?: string;
   theme?: string;
   notes?: string;
+  participants?: string[];
 };
 
 const dia1: Activity[] = [
@@ -66,18 +67,67 @@ const dia2: Activity[] = [
 const dia3: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
   { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "Abertura das mesas-redondas" },
-  { time: "09:30", activity: "Mesa: Entrei na Fisio, e agora?", category: "mesa", topic: "Vivências Acadêmicas e Integração", speaker: "Professor Luiz Fernando Alvarenga", notes: "Perguntas abertas ao final" },
+  { 
+    time: "09:30", 
+    activity: "Mesa: Entrei na Fisio, e agora?", 
+    category: "mesa", 
+    topic: "Vivências Acadêmicas e Integração", 
+    speaker: "Professor Luiz Fernando Alvarenga", 
+    participants: ["Victória Dames", "Luisa Garcia", "Dênis Selau", "Laura Zandavalli", "Bruna Malgor"],
+    notes: "Perguntas abertas ao final" 
+  },
   { time: "10:20", activity: "Intervalo", category: "intervalo" },
-  { time: "10:30", activity: "Mesa: Atenção Primária à Saúde", category: "mesa", topic: "Atenção Primária à Saúde (APS)", speaker: "A definir", notes: "Perguntas abertas ao final" },
-  { time: "11:20", activity: "Mesa: Redes Sociais", category: "mesa", topic: "Comunicação e Redes Sociais na Fisioterapia", speaker: "Professora Ângela Ghisleni", notes: "Perguntas abertas ao final" },
+  { 
+    time: "10:30", 
+    activity: "Mesa: Atenção Primária à Saúde", 
+    category: "mesa", 
+    topic: "Atenção Primária à Saúde (APS)", 
+    speaker: "Raphael Caballero", 
+    participants: ["Téo Fronzi", "Douglas Stahnke", "Ana Carolina de Souza Kummer"],
+    notes: "Perguntas abertas ao final" 
+  },
+  { 
+    time: "11:20", 
+    activity: "Mesa: Redes Sociais", 
+    category: "mesa", 
+    topic: "Comunicação e Redes Sociais na Fisioterapia", 
+    speaker: "Professora Ângela Ghisleni", 
+    participants: ["João Almeida", "Filipe Schedler", "Matheus Seidel", "Ariane Laureano", "Eduardo Freitas da Rosa"],
+    notes: "Perguntas abertas ao final" 
+  },
   { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
   { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação especial de Ballet" },
-  { time: "14:00", activity: "Mesa: Me formei, e agora?", category: "mesa", topic: "Transição de Carreira e Mercado", speaker: "A definir", notes: "Perguntas abertas ao final" },
+  { 
+    time: "14:00", 
+    activity: "Mesa: Me formei, e agora?", 
+    category: "mesa", 
+    topic: "Transição de Carreira e Mercado", 
+    speaker: "A definir", 
+    participants: ["Julia Paulon Puerari", "Francisca Pereira", "Caroline Leal", "Bruna Eibel"],
+    notes: "Perguntas abertas ao final" 
+  },
   { time: "14:50", activity: "Intervalo", category: "intervalo" },
-  { time: "15:00", activity: "Mesa: Aspectos da Dor", category: "mesa", topic: "Aspectos da Dor e Neurociência", speaker: "Professora Camila Pinto", notes: "Perguntas abertas ao final" },
+  { 
+    time: "15:00", 
+    activity: "Mesa: Aspectos da Dor", 
+    category: "mesa", 
+    topic: "Aspectos da Dor e Neurociência", 
+    speaker: "Professora Camila Pinto", 
+    participants: ["Rafael Vercelino", "Francisco Araújo", "Adriane Vieira"],
+    notes: "Perguntas abertas ao final" 
+  },
   { time: "15:50", activity: "Intervalo", category: "intervalo" },
-  { time: "16:00", activity: "Mesa GreNal: Além das quatro linhas", category: "mesa", theme: "Além das quatro linhas: O Dia a Dia do Fisioterapeuta na Dupla GreNal", topic: "Fisioterapia Esportiva", speaker: "Professor Leandro Bonetti", notes: "Perguntas abertas ao final" },
+  { 
+    time: "16:00", 
+    activity: "Mesa GreNal: Além das quatro linhas", 
+    category: "mesa", 
+    theme: "Além das quatro linhas: O Dia a Dia do Fisioterapeuta na Dupla GreNal", 
+    topic: "Fisioterapia Esportiva", 
+    speaker: "Professor Leandro Bonetti", 
+    participants: ["Vithória Messa", "Vinícius de Borba Capaverde", "Natasha Perusso", "André Krüger"],
+    notes: "Perguntas abertas ao final" 
+  },
   { time: "17:00", activity: "Encerramento Oficial da Jornada", category: "solenidade", notes: "Agradecimentos e encerramento do evento" },
 ];
 
@@ -291,7 +341,7 @@ export function Schedule() {
                         </h4>
 
                         {/* Speaker, Theme & Topic */}
-                        {(item.speaker || item.topic || item.theme) && (
+                        {(item.speaker || item.topic || item.theme || (item.participants && item.participants.length > 0)) && (
                           <div className="mt-3 pt-3 border-t border-wire/40 flex flex-col gap-1.5">
                             {item.theme && (
                               <div className="flex items-start gap-2 text-xs font-mono text-ink/80">
@@ -319,6 +369,19 @@ export function Schedule() {
                                     {item.category === "mesa" ? "Moderador(a): " : "Palestrante: "}
                                   </span>
                                   <strong className="text-ink font-semibold">{item.speaker}</strong>
+                                </span>
+                              </div>
+                            )}
+                            {item.participants && item.participants.length > 0 && (
+                              <div className="flex items-start gap-2 text-sm text-ink/90">
+                                <Users className="w-4 h-4 text-bordo mt-0.5 shrink-0" />
+                                <span className="font-body font-medium">
+                                  <span className="text-ink/65">
+                                    Participantes:{" "}
+                                  </span>
+                                  <strong className="text-ink font-semibold">
+                                    {item.participants.join(", ")}
+                                  </strong>
                                 </span>
                               </div>
                             )}
