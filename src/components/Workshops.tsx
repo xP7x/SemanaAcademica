@@ -24,7 +24,7 @@ const workshopsData: WorkshopItem[] = [
     time: "19:00",
     title: "Fisioterapia na jornada materna: do pré-parto ao pós-parto",
     type: "Fisioterapia Pélvica",
-    speaker: "Nathália Casagrande",
+    speaker: "Natália Casagrande",
     location: "UFRGS - ESEFID",
     spots: "20 vagas",
   },

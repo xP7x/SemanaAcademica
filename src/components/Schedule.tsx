@@ -38,7 +38,7 @@ const dia1: Activity[] = [
   { time: "14:50", activity: "Intervalo", category: "intervalo" },
   { time: "15:00", activity: "Palestra: Traumato-ortopédica", category: "palestra", speaker: "Leonardo Neves", topic: "Traumato-ortopédica", notes: "Perguntas abertas ao final" },
   { time: "15:50", activity: "Intervalo", category: "intervalo" },
-  { time: "16:00", activity: "Palestra Especial da FILA", category: "palestra", speaker: "Wagner Rosa de Oliveira (FILA)", topic: "Tecnologia e Performance", notes: "Perguntas abertas ao final" },
+  { time: "16:00", activity: "A Biomecânica como Ferramenta na Indústria: O Papel do Profissional da Saúde no Desenvolvimento de Produtos Esportivos - Palestra Especial da FILA", category: "palestra", speaker: "Wagner Rosa de Oliveira (FILA)", topic: "Tecnologia e Performance", notes: "Perguntas abertas ao final" },
   { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
   { time: "17:10", activity: "Coffee Break", category: "intervalo" },
   { time: "19:00", activity: "Workshops Simultâneos", category: "workshop", topic: "Fisioterapia Pélvica, Dermatofuncional e Órtese & Prótese", notes: "Local: UFRGS - ESEFID" },
@@ -67,66 +67,66 @@ const dia2: Activity[] = [
 const dia3: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
   { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "Abertura das mesas-redondas" },
-  { 
-    time: "09:30", 
-    activity: "Mesa: Entrei na Fisio, e agora?", 
-    category: "mesa", 
-    topic: "Vivências Acadêmicas e Integração", 
-    speaker: "Professor Luiz Fernando Alvarenga", 
+  {
+    time: "09:30",
+    activity: "Mesa: Entrei na Fisio, e agora?",
+    category: "mesa",
+    topic: "Vivências Acadêmicas e Integração",
+    speaker: "Professor Luiz Fernando Alvarenga",
     participants: ["Victória Dames", "Luisa Garcia", "Dênis Selau", "Laura Zandavalli", "Bruna Malgor"],
-    notes: "Perguntas abertas ao final" 
+    notes: "Perguntas abertas ao final"
   },
   { time: "10:20", activity: "Intervalo", category: "intervalo" },
-  { 
-    time: "10:30", 
-    activity: "Mesa: Atenção Primária à Saúde", 
-    category: "mesa", 
-    topic: "Atenção Primária à Saúde (APS)", 
-    speaker: "Raphael Caballero", 
+  {
+    time: "10:30",
+    activity: "Mesa: Atenção Primária à Saúde",
+    category: "mesa",
+    topic: "Atenção Primária à Saúde (APS)",
+    speaker: "Raphael Caballero",
     participants: ["Téo Fronzi", "Douglas Stahnke", "Ana Carolina de Souza Kummer"],
-    notes: "Perguntas abertas ao final" 
+    notes: "Perguntas abertas ao final"
   },
-  { 
-    time: "11:20", 
-    activity: "Mesa: Redes Sociais", 
-    category: "mesa", 
-    topic: "Comunicação e Redes Sociais na Fisioterapia", 
-    speaker: "Professora Ângela Ghisleni", 
+  {
+    time: "11:20",
+    activity: "Mesa: Redes Sociais",
+    category: "mesa",
+    topic: "Comunicação e Redes Sociais na Fisioterapia",
+    speaker: "Professora Ângela Ghisleni",
     participants: ["João Almeida", "Filipe Schedler", "Matheus Seidel", "Ariane Laureano", "Eduardo Freitas da Rosa"],
-    notes: "Perguntas abertas ao final" 
+    notes: "Perguntas abertas ao final"
   },
   { time: "12:10", activity: "Intervalo de Almoço", category: "intervalo" },
   { time: "13:00", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (tarde)" },
   { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação especial de Ballet" },
-  { 
-    time: "14:00", 
-    activity: "Mesa: Me formei, e agora?", 
-    category: "mesa", 
-    topic: "Transição de Carreira e Mercado", 
-    speaker: "A definir", 
+  {
+    time: "14:00",
+    activity: "Mesa: Me formei, e agora?",
+    category: "mesa",
+    topic: "Transição de Carreira e Mercado",
+    speaker: "A definir",
     participants: ["Julia Paulon Puerari", "Francisca Pereira", "Caroline Leal", "Bruna Eibel"],
-    notes: "Perguntas abertas ao final" 
+    notes: "Perguntas abertas ao final"
   },
   { time: "14:50", activity: "Intervalo", category: "intervalo" },
-  { 
-    time: "15:00", 
-    activity: "Mesa: Aspectos da Dor", 
-    category: "mesa", 
-    topic: "Aspectos da Dor e Neurociência", 
-    speaker: "Professora Camila Pinto", 
-    participants: ["Rafael Vercelino", "Francisco Araújo", "Adriane Vieira"],
-    notes: "Perguntas abertas ao final" 
+  {
+    time: "15:00",
+    activity: "Mesa: Aspectos da Dor",
+    category: "mesa",
+    topic: "Aspectos da Dor e Neurociência",
+    speaker: "Professora Camila Pinto",
+    participants: ["Rafael Vercelino", "Francisco Araújo", "Adriane Vieira", "Andrea Janz Moreira"],
+    notes: "Perguntas abertas ao final"
   },
   { time: "15:50", activity: "Intervalo", category: "intervalo" },
-  { 
-    time: "16:00", 
-    activity: "Mesa GreNal: Além das quatro linhas", 
-    category: "mesa", 
-    theme: "Além das quatro linhas: O Dia a Dia do Fisioterapeuta na Dupla GreNal", 
-    topic: "Fisioterapia Esportiva", 
-    speaker: "Professor Leandro Bonetti", 
+  {
+    time: "16:00",
+    activity: "Mesa GreNal: Além das quatro linhas",
+    category: "mesa",
+    theme: "Além das quatro linhas: O Dia a Dia do Fisioterapeuta na Dupla GreNal",
+    topic: "Fisioterapia Esportiva",
+    speaker: "Professor Leandro Bonetti",
     participants: ["Vithória Messa", "Vinícius de Borba Capaverde", "Natasha Perusso", "André Krüger"],
-    notes: "Perguntas abertas ao final" 
+    notes: "Perguntas abertas ao final"
   },
   { time: "17:00", activity: "Encerramento Oficial da Jornada", category: "solenidade", notes: "Agradecimentos e encerramento do evento" },
 ];
