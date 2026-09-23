@@ -12,17 +12,22 @@ export function Sponsors() {
     {
       name: "Cadore Tech",
       logo: "/images/patrocinadores/CadoreTech_vertical-preto.svg",
-      className: "h-44 sm:h-52 md:h-56 w-auto max-w-full scale-105",
+      className: "h-40 sm:h-48 md:h-52 w-auto max-w-full scale-105",
     },
     {
       name: "Instituto Golden",
       logo: "/images/patrocinadores/logo golden_logo_ensino_preta.svg",
-      className: "h-28 sm:h-36 md:h-40 w-auto max-w-full",
+      className: "h-24 sm:h-32 md:h-36 w-auto max-w-full",
     },
     {
       name: "VOLL Pilates Group",
       logo: "/images/patrocinadores/logo_voll_pilates_group_institucional.svg",
-      className: "h-32 sm:h-40 md:h-44 w-auto max-w-full",
+      className: "h-28 sm:h-36 md:h-40 w-auto max-w-full",
+    },
+    {
+      name: "Scherer Aventais",
+      logo: "/images/patrocinadores/logo_scherer_aventais.jpg",
+      className: "h-24 sm:h-28 md:h-32 w-auto max-w-full rounded-md shadow-xs",
     },
   ];
 
@@ -46,7 +51,7 @@ export function Sponsors() {
           </p>
         </div>
 
-        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 items-center justify-items-center w-full">
+        <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-center justify-items-center w-full">
           {sponsors.map((sponsor, i) => (
             <motion.div
               key={i}
