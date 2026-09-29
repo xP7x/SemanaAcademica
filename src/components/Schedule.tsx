@@ -47,7 +47,7 @@ const dia1: Activity[] = [
 const dia2: Activity[] = [
   { time: "08:30", activity: "Credenciamento", category: "credenciamento", notes: "Controle de presença (manhã)" },
   { time: "09:00", activity: "Abertura do Dia", category: "solenidade", notes: "Abertura do segundo dia" },
-  { time: "09:30", activity: "Desmame da ventilação", category: "palestra", speaker: "Caroline Schmidt", topic: "Fisioterapia Respiratória", notes: "Perguntas abertas ao final" },
+  { time: "09:30", activity: "Desmame da ventilação mecânica: quando a criança está pronta?", category: "palestra", speaker: "Caroline Schmidt", topic: "Fisioterapia Respiratória", notes: "Perguntas abertas ao final" },
   { time: "10:20", activity: "Intervalo", category: "intervalo" },
   { time: "10:30", activity: "Doença de Parkinson", category: "palestra", speaker: "Camila Pinto", topic: "Neurofuncional", notes: "Perguntas abertas ao final" },
   { time: "11:20", activity: "Paralisia Cerebral", category: "palestra", speaker: "Mylena Francini", topic: "Neurofuncional Pediátrica", notes: "Perguntas abertas ao final" },
@@ -56,7 +56,7 @@ const dia2: Activity[] = [
   { time: "13:30", activity: "Apresentação Cultural", category: "cultural", notes: "Apresentação artística e cultural" },
   { time: "14:00", activity: "Palestra: Terapia Intensiva e Adulto Crítico", category: "palestra", speaker: "Gabriela Jaroceski", topic: "Terapia Intensiva e Adulto Crítico", notes: "Perguntas abertas ao final" },
   { time: "14:50", activity: "Intervalo", category: "intervalo" },
-  { time: "15:00", activity: "Palestra: Cuidados Paliativos", category: "palestra", speaker: "Mariana Vieira", topic: "Cuidados Paliativos", notes: "Perguntas abertas ao final" },
+  { time: "15:00", activity: "Movimentos que importam: O lugar da fisioterapia nos cuidados paliativos", category: "palestra", speaker: "Mariana Vieira", topic: "Cuidados Paliativos", notes: "Perguntas abertas ao final" },
   { time: "15:50", activity: "Intervalo", category: "intervalo" },
   { time: "16:00", activity: "Reabilitação cardíaca: princípios, segurança e efetividade", category: "palestra", speaker: "Dênis Selau", topic: "Fisioterapia Cardiovascular", notes: "Perguntas abertas ao final" },
   { time: "16:50", activity: "Encerramento do Bloco de Palestras", category: "solenidade", notes: "Orientações para os workshops" },
