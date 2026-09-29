@@ -29,6 +29,26 @@ export function Sponsors() {
       logo: "/images/patrocinadores/logo_scherer_aventais.jpg",
       className: "h-24 sm:h-28 md:h-32 w-auto max-w-full rounded-md shadow-xs",
     },
+    {
+      name: "D'água Natural",
+      logo: "/images/patrocinadores/Dagua Natural.PNG",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full",
+    },
+    {
+      name: "Dona Capi",
+      logo: "/images/patrocinadores/Dona Capi.jpg",
+      className: "h-24 sm:h-28 md:h-32 w-auto max-w-full rounded-md shadow-xs",
+    },
+    {
+      name: "Família Sbruzzi",
+      logo: "/images/patrocinadores/Familia Sbruzzi.jpg",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full rounded-md shadow-xs",
+    },
+    {
+      name: "KinesioSport",
+      logo: "/images/patrocinadores/KinesioSports.png",
+      className: "h-18 sm:h-22 md:h-26 w-auto max-w-full",
+    },
   ];
 
   return (
