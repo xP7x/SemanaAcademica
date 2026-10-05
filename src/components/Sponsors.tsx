@@ -49,6 +49,16 @@ export function Sponsors() {
       logo: "/images/patrocinadores/KinesioSports.png",
       className: "h-18 sm:h-22 md:h-26 w-auto max-w-full",
     },
+    {
+      name: "Café do Mercado",
+      logo: "/images/patrocinadores/cafe-do-mercado.png",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full",
+    },
+    {
+      name: "Mercur",
+      logo: "/images/patrocinadores/mercur.png",
+      className: "h-16 sm:h-20 md:h-24 w-auto max-w-full",
+    },
   ];
 
   return (
