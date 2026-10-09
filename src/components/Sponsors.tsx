@@ -59,6 +59,11 @@ export function Sponsors() {
       logo: "/images/patrocinadores/mercur.png",
       className: "h-16 sm:h-20 md:h-24 w-auto max-w-full",
     },
+    {
+      name: "Kallango",
+      logo: "/images/patrocinadores/Kallango.PNG",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full",
+    },
   ];
 
   return (
