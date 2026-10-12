@@ -35,9 +35,24 @@ export function Sponsors() {
       className: "h-20 sm:h-24 md:h-28 w-auto max-w-full",
     },
     {
-      name: "Dona Capi",
-      logo: "/images/patrocinadores/Dona Capi.jpg",
-      className: "h-24 sm:h-28 md:h-32 w-auto max-w-full rounded-md shadow-xs",
+      name: "Kapra Medical",
+      logo: "/images/patrocinadores/Kapra.jpg",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full rounded-md shadow-xs",
+    },
+    {
+      name: "Mischas",
+      logo: "/images/patrocinadores/Mischas.jpeg",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full rounded-md shadow-xs",
+    },
+    {
+      name: "Red Bull",
+      logo: "/images/patrocinadores/RED BULL_ED_MOLHADO_LATA_IR_ABERTA_ILUSTRADA.png",
+      className: "h-28 sm:h-36 md:h-40 w-auto max-w-full",
+    },
+    {
+      name: "Salete Salgados",
+      logo: "/images/patrocinadores/Salete Salgados.jpeg",
+      className: "h-20 sm:h-24 md:h-28 w-auto max-w-full rounded-md shadow-xs",
     },
     {
       name: "Família Sbruzzi",
